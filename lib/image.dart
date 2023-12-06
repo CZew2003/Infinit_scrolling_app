@@ -4,9 +4,9 @@ class ImageClass {
   ImageClass.fromJson(Map<String, dynamic> json)
       : description = json['alt_description'] as String,
         createdAt = json['created_at'] as String,
-        smallImage = json.cast()['urls']['small'] as String,
+        smallImage = (json['urls'] as Map<String, dynamic>)['small'] as String,
         likes = json['likes'] as int,
-        account = json['user']['links']['html'] as String;
+        account = ((json['user'] as Map<String, dynamic>)['links'] as Map<String, dynamic>)['html'] as String;
 
   final String description;
   final String createdAt;

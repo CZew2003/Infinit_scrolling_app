@@ -6,9 +6,9 @@ import 'image.dart';
 
 class ImageProviderService {
   Future<List<ImageClass>> fetchData(int page) async {
-    Uri uri = Uri(scheme: 'https', host: 'api.unsplash.com', pathSegments: [
+    final Uri uri = Uri(scheme: 'https', host: 'api.unsplash.com', pathSegments: <String>[
       'photos'
-    ], queryParameters: {
+    ], queryParameters: <String, String>{
       'client_id': apiKey,
       'page': page.toString(),
       'per_page': '10',
@@ -19,11 +19,8 @@ class ImageProviderService {
     }
 
     final List<dynamic> body = jsonDecode(response.body) as List<dynamic>;
-    final List<ImageClass> images = <ImageClass>[];
-
-    for (final Map<String, dynamic> imageJson in body) {
-      images.add(ImageClass.fromJson(imageJson));
-    }
+    final List<ImageClass> images =
+        body.map((dynamic json) => ImageClass.fromJson(json as Map<String, dynamic>)).toList();
     return images;
   }
 }
