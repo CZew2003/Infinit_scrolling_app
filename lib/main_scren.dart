@@ -77,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 20, top: 8, bottom: 8, right: 8),
             child: Row(
-              children: [
+              children: <Widget>[
                 Expanded(
                   child: TextField(
                     onChanged: (String value) {
@@ -101,7 +101,6 @@ class _MainScreenState extends State<MainScreen> {
                   onSelect: (bool selected, String item) {
                     if (selected) {
                       colorSelected = item;
-                      print('Da');
                       fetchData();
                     } else {
                       colorSelected = '';
