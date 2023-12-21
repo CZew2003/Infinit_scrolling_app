@@ -25,14 +25,12 @@ mixin _$UserModel {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserModelCopyWith<UserModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  $UserModelCopyWith<UserModel> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $UserModelCopyWith<$Res> {
-  factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
-      _$UserModelCopyWithImpl<$Res, UserModel>;
+  factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) = _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
   $Res call({LinksModel links, String name});
 
@@ -40,8 +38,7 @@ abstract class $UserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
-    implements $UserModelCopyWith<$Res> {
+class _$UserModelCopyWithImpl<$Res, $Val extends UserModel> implements $UserModelCopyWith<$Res> {
   _$UserModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -77,10 +74,8 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
 }
 
 /// @nodoc
-abstract class _$$UserModel$ImplCopyWith<$Res>
-    implements $UserModelCopyWith<$Res> {
-  factory _$$UserModel$ImplCopyWith(
-          _$UserModel$Impl value, $Res Function(_$UserModel$Impl) then) =
+abstract class _$$UserModel$ImplCopyWith<$Res> implements $UserModelCopyWith<$Res> {
+  factory _$$UserModel$ImplCopyWith(_$UserModel$Impl value, $Res Function(_$UserModel$Impl) then) =
       __$$UserModel$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -91,12 +86,9 @@ abstract class _$$UserModel$ImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UserModel$ImplCopyWithImpl<$Res>
-    extends _$UserModelCopyWithImpl<$Res, _$UserModel$Impl>
+class __$$UserModel$ImplCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res, _$UserModel$Impl>
     implements _$$UserModel$ImplCopyWith<$Res> {
-  __$$UserModel$ImplCopyWithImpl(
-      _$UserModel$Impl _value, $Res Function(_$UserModel$Impl) _then)
-      : super(_value, _then);
+  __$$UserModel$ImplCopyWithImpl(_$UserModel$Impl _value, $Res Function(_$UserModel$Impl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -122,8 +114,7 @@ class __$$UserModel$ImplCopyWithImpl<$Res>
 class _$UserModel$Impl implements UserModel$ {
   const _$UserModel$Impl({required this.links, required this.name});
 
-  factory _$UserModel$Impl.fromJson(Map<String, dynamic> json) =>
-      _$$UserModel$ImplFromJson(json);
+  factory _$UserModel$Impl.fromJson(Map<String, dynamic> json) => _$$UserModel$ImplFromJson(json);
 
   @override
   final LinksModel links;
@@ -163,12 +154,9 @@ class _$UserModel$Impl implements UserModel$ {
 }
 
 abstract class UserModel$ implements UserModel {
-  const factory UserModel$(
-      {required final LinksModel links,
-      required final String name}) = _$UserModel$Impl;
+  const factory UserModel$({required final LinksModel links, required final String name}) = _$UserModel$Impl;
 
-  factory UserModel$.fromJson(Map<String, dynamic> json) =
-      _$UserModel$Impl.fromJson;
+  factory UserModel$.fromJson(Map<String, dynamic> json) = _$UserModel$Impl.fromJson;
 
   @override
   LinksModel get links;
@@ -176,6 +164,5 @@ abstract class UserModel$ implements UserModel {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$UserModel$ImplCopyWith<_$UserModel$Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UserModel$ImplCopyWith<_$UserModel$Impl> get copyWith => throw _privateConstructorUsedError;
 }
