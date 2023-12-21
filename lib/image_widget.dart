@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'image.dart';
+import 'models/image_model.dart';
 
 class ImageWidget extends StatelessWidget {
   const ImageWidget({super.key, required this.imageClass});
 
-  final ImageClass imageClass;
+  final ImageModel imageClass;
 
   Future<void> _launchUrl() async {
-    final Uri uri = Uri.parse(imageClass.account);
+    final Uri uri = Uri.parse(imageClass.user.links.html);
     if (!await launchUrl(uri)) {
       throw Exception('Could not launch $uri');
     }
@@ -25,7 +25,7 @@ class ImageWidget extends StatelessWidget {
           InkWell(
             onTap: _launchUrl,
             child: Text(
-              imageClass.account,
+              imageClass.user.links.html,
               style: const TextStyle(
                 color: Colors.blue,
                 fontSize: 18,
@@ -65,7 +65,7 @@ class ImageWidget extends StatelessWidget {
                 width: 20,
               ),
               Expanded(
-                child: SizedBox(height: 200, child: Image.network(imageClass.smallImage)),
+                child: SizedBox(height: 200, child: Image.network(imageClass.urls.smallImage)),
               ),
             ],
           ),

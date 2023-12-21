@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
+import 'api/images_api.dart';
+import 'api_key.dart';
 import 'filter_widget.dart';
-import 'image.dart';
-import 'image_provider.dart';
 import 'image_widget.dart';
+import 'models/image_model.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,12 +15,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<ImageClass> images = <ImageClass>[];
+  List<ImageModel> images = <ImageModel>[];
   bool isLoading = true;
-  ImageProviderService imageProviderService = ImageProviderService();
   int page = 1;
   final ScrollController _controller = ScrollController();
   final TextEditingController _controller1 = TextEditingController();
+  final ImagesApi imagesApi = ImagesApi(client: Client(), apiKey: apiKey);
   String lastSearch = '';
   String lastColor = '';
   String colorSelected = '';
@@ -31,11 +33,11 @@ class _MainScreenState extends State<MainScreen> {
     }
     setState(() => isLoading = true);
 
-    late List<ImageClass> newImages;
+    late List<ImageModel> newImages;
     if (value == '') {
-      newImages = await imageProviderService.fetchData(page);
+      newImages = await imagesApi.loadImages(page);
     } else {
-      newImages = await imageProviderService.fetchSearchData(page, value, colorSelected);
+      newImages = await imagesApi.loadSearchImages(page: page, query: value, color: colorSelected);
     }
 
     if (value != lastSearch || lastColor != colorSelected) {
