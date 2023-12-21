@@ -28,7 +28,7 @@ class ImagesApi {
 
     return body
         .map(
-          (e) => ImageModel.fromJson(e as Map<String, dynamic>),
+          (dynamic e) => ImageModel.fromJson(e as Map<String, dynamic>),
         )
         .toList();
   }
@@ -61,16 +61,8 @@ class ImagesApi {
     final List<dynamic> results = body['results'] as List<dynamic>;
     return results
         .map(
-          (e) => ImageModel.fromJson(e as Map<String, dynamic>),
+          (dynamic e) => ImageModel.fromJson(e as Map<String, dynamic>),
         )
         .toList();
   }
-}
-
-Future<void> main() async {
-  const String apiKey = 'vtS7jhiNfYWzq-Sk97tSuZtuY4iGlVqtcJmHllWaqwg';
-  final Client client = Client();
-  final ImagesApi imagesApi = ImagesApi(client: client, apiKey: apiKey);
-  final List<ImageModel> images = await imagesApi.loadSearchImages(page: 1, query: 'Dog');
-  images.forEach(print);
 }
