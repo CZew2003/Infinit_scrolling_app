@@ -25,19 +25,22 @@ mixin _$ImageUrlModel {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ImageUrlModelCopyWith<ImageUrlModel> get copyWith => throw _privateConstructorUsedError;
+  $ImageUrlModelCopyWith<ImageUrlModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ImageUrlModelCopyWith<$Res> {
-  factory $ImageUrlModelCopyWith(ImageUrlModel value, $Res Function(ImageUrlModel) then) =
+  factory $ImageUrlModelCopyWith(
+          ImageUrlModel value, $Res Function(ImageUrlModel) then) =
       _$ImageUrlModelCopyWithImpl<$Res, ImageUrlModel>;
   @useResult
   $Res call({@JsonKey(name: 'small') String smallImage});
 }
 
 /// @nodoc
-class _$ImageUrlModelCopyWithImpl<$Res, $Val extends ImageUrlModel> implements $ImageUrlModelCopyWith<$Res> {
+class _$ImageUrlModelCopyWithImpl<$Res, $Val extends ImageUrlModel>
+    implements $ImageUrlModelCopyWith<$Res> {
   _$ImageUrlModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -60,8 +63,10 @@ class _$ImageUrlModelCopyWithImpl<$Res, $Val extends ImageUrlModel> implements $
 }
 
 /// @nodoc
-abstract class _$$ImageUrlModel$ImplCopyWith<$Res> implements $ImageUrlModelCopyWith<$Res> {
-  factory _$$ImageUrlModel$ImplCopyWith(_$ImageUrlModel$Impl value, $Res Function(_$ImageUrlModel$Impl) then) =
+abstract class _$$ImageUrlModel$ImplCopyWith<$Res>
+    implements $ImageUrlModelCopyWith<$Res> {
+  factory _$$ImageUrlModel$ImplCopyWith(_$ImageUrlModel$Impl value,
+          $Res Function(_$ImageUrlModel$Impl) then) =
       __$$ImageUrlModel$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -69,9 +74,11 @@ abstract class _$$ImageUrlModel$ImplCopyWith<$Res> implements $ImageUrlModelCopy
 }
 
 /// @nodoc
-class __$$ImageUrlModel$ImplCopyWithImpl<$Res> extends _$ImageUrlModelCopyWithImpl<$Res, _$ImageUrlModel$Impl>
+class __$$ImageUrlModel$ImplCopyWithImpl<$Res>
+    extends _$ImageUrlModelCopyWithImpl<$Res, _$ImageUrlModel$Impl>
     implements _$$ImageUrlModel$ImplCopyWith<$Res> {
-  __$$ImageUrlModel$ImplCopyWithImpl(_$ImageUrlModel$Impl _value, $Res Function(_$ImageUrlModel$Impl) _then)
+  __$$ImageUrlModel$ImplCopyWithImpl(
+      _$ImageUrlModel$Impl _value, $Res Function(_$ImageUrlModel$Impl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -91,9 +98,11 @@ class __$$ImageUrlModel$ImplCopyWithImpl<$Res> extends _$ImageUrlModelCopyWithIm
 /// @nodoc
 @JsonSerializable()
 class _$ImageUrlModel$Impl implements ImageUrlModel$ {
-  const _$ImageUrlModel$Impl({@JsonKey(name: 'small') required this.smallImage});
+  const _$ImageUrlModel$Impl(
+      {@JsonKey(name: 'small') required this.smallImage});
 
-  factory _$ImageUrlModel$Impl.fromJson(Map<String, dynamic> json) => _$$ImageUrlModel$ImplFromJson(json);
+  factory _$ImageUrlModel$Impl.fromJson(Map<String, dynamic> json) =>
+      _$$ImageUrlModel$ImplFromJson(json);
 
   @override
   @JsonKey(name: 'small')
@@ -109,7 +118,8 @@ class _$ImageUrlModel$Impl implements ImageUrlModel$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImageUrlModel$Impl &&
-            (identical(other.smallImage, smallImage) || other.smallImage == smallImage));
+            (identical(other.smallImage, smallImage) ||
+                other.smallImage == smallImage));
   }
 
   @JsonKey(ignore: true)
@@ -120,7 +130,8 @@ class _$ImageUrlModel$Impl implements ImageUrlModel$ {
   @override
   @pragma('vm:prefer-inline')
   _$$ImageUrlModel$ImplCopyWith<_$ImageUrlModel$Impl> get copyWith =>
-      __$$ImageUrlModel$ImplCopyWithImpl<_$ImageUrlModel$Impl>(this, _$identity);
+      __$$ImageUrlModel$ImplCopyWithImpl<_$ImageUrlModel$Impl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -131,14 +142,18 @@ class _$ImageUrlModel$Impl implements ImageUrlModel$ {
 }
 
 abstract class ImageUrlModel$ implements ImageUrlModel {
-  const factory ImageUrlModel$({@JsonKey(name: 'small') required final String smallImage}) = _$ImageUrlModel$Impl;
+  const factory ImageUrlModel$(
+          {@JsonKey(name: 'small') required final String smallImage}) =
+      _$ImageUrlModel$Impl;
 
-  factory ImageUrlModel$.fromJson(Map<String, dynamic> json) = _$ImageUrlModel$Impl.fromJson;
+  factory ImageUrlModel$.fromJson(Map<String, dynamic> json) =
+      _$ImageUrlModel$Impl.fromJson;
 
   @override
   @JsonKey(name: 'small')
   String get smallImage;
   @override
   @JsonKey(ignore: true)
-  _$$ImageUrlModel$ImplCopyWith<_$ImageUrlModel$Impl> get copyWith => throw _privateConstructorUsedError;
+  _$$ImageUrlModel$ImplCopyWith<_$ImageUrlModel$Impl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart';
 
-import '../models/image_model.dart';
+import '../models/image/image_model.dart';
 
 class ImagesApi {
   ImagesApi({required this.client, required this.apiKey});
@@ -9,7 +9,9 @@ class ImagesApi {
   final Client client;
   final String apiKey;
 
-  Future<List<ImageModel>> loadImages(int page) async {
+  Future<List<ImageModel>> loadImages({
+    required int page,
+  }) async {
     final Uri uri = Uri(scheme: 'https', host: 'api.unsplash.com', pathSegments: <String>[
       'photos'
     ], queryParameters: <String, String>{
@@ -36,7 +38,7 @@ class ImagesApi {
   Future<List<ImageModel>> loadSearchImages({
     required int page,
     required String query,
-    String? color,
+    required String color,
   }) async {
     final Uri uri = Uri(
       scheme: 'https',
@@ -47,7 +49,7 @@ class ImagesApi {
         'page': page.toString(),
         'per_page': '10',
         'query': query,
-        if (color != '') 'color': color ?? '',
+        if (color != '') 'color': color,
       },
     );
 

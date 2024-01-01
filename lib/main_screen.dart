@@ -5,7 +5,7 @@ import 'api/images_api.dart';
 import 'api_key.dart';
 import 'filter_widget.dart';
 import 'image_widget.dart';
-import 'models/image_model.dart';
+import 'models/image/image_model.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
 
     late List<ImageModel> newImages;
     if (value == '') {
-      newImages = await imagesApi.loadImages(page);
+      newImages = await imagesApi.loadImages(page: page);
     } else {
       newImages = await imagesApi.loadSearchImages(page: page, query: value, color: colorSelected);
     }
@@ -106,6 +106,7 @@ class _MainScreenState extends State<MainScreen> {
                       fetchData();
                     } else {
                       colorSelected = '';
+                      fetchData();
                     }
                   },
                 ),

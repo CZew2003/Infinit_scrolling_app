@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'image_url_model.dart';
-import 'user_model.dart';
+import '../image_url/image_url_model.dart';
+import '../user/user_model.dart';
 
 part 'image_model.freezed.dart';
 part 'image_model.g.dart';
