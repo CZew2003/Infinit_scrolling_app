@@ -2,8 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../models/image/image_model.dart';
 import '../app_action.dart';
-import '../../models/app_state/app_state.dart';
-
 part 'list_images.freezed.dart';
 
 @freezed
