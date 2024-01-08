@@ -28,26 +28,18 @@ mixin _$AppState {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AppStateCopyWith<AppState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AppStateCopyWith<AppState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
-  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
-      _$AppStateCopyWithImpl<$Res, AppState>;
+  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<ImageModel> images,
-      int page,
-      String lastQuery,
-      String lastColor});
+  $Res call({bool isLoading, List<ImageModel> images, int page, String lastQuery, String lastColor});
 }
 
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
-    implements $AppStateCopyWith<$Res> {
+class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -90,28 +82,18 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
 }
 
 /// @nodoc
-abstract class _$$AppState$ImplCopyWith<$Res>
-    implements $AppStateCopyWith<$Res> {
-  factory _$$AppState$ImplCopyWith(
-          _$AppState$Impl value, $Res Function(_$AppState$Impl) then) =
+abstract class _$$AppState$ImplCopyWith<$Res> implements $AppStateCopyWith<$Res> {
+  factory _$$AppState$ImplCopyWith(_$AppState$Impl value, $Res Function(_$AppState$Impl) then) =
       __$$AppState$ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<ImageModel> images,
-      int page,
-      String lastQuery,
-      String lastColor});
+  $Res call({bool isLoading, List<ImageModel> images, int page, String lastQuery, String lastColor});
 }
 
 /// @nodoc
-class __$$AppState$ImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppState$Impl>
+class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppState$Impl>
     implements _$$AppState$ImplCopyWith<$Res> {
-  __$$AppState$ImplCopyWithImpl(
-      _$AppState$Impl _value, $Res Function(_$AppState$Impl) _then)
-      : super(_value, _then);
+  __$$AppState$ImplCopyWithImpl(_$AppState$Impl _value, $Res Function(_$AppState$Impl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -158,8 +140,7 @@ class _$AppState$Impl implements AppState$ {
       this.lastColor = ''})
       : _images = images;
 
-  factory _$AppState$Impl.fromJson(Map<String, dynamic> json) =>
-      _$$AppState$ImplFromJson(json);
+  factory _$AppState$Impl.fromJson(Map<String, dynamic> json) => _$$AppState$ImplFromJson(json);
 
   @override
   @JsonKey()
@@ -193,20 +174,17 @@ class _$AppState$Impl implements AppState$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppState$Impl &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
+            (identical(other.isLoading, isLoading) || other.isLoading == isLoading) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             (identical(other.page, page) || other.page == page) &&
-            (identical(other.lastQuery, lastQuery) ||
-                other.lastQuery == lastQuery) &&
-            (identical(other.lastColor, lastColor) ||
-                other.lastColor == lastColor));
+            (identical(other.lastQuery, lastQuery) || other.lastQuery == lastQuery) &&
+            (identical(other.lastColor, lastColor) || other.lastColor == lastColor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading,
-      const DeepCollectionEquality().hash(_images), page, lastQuery, lastColor);
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, const DeepCollectionEquality().hash(_images), page, lastQuery, lastColor);
 
   @JsonKey(ignore: true)
   @override
@@ -230,8 +208,7 @@ abstract class AppState$ implements AppState {
       final String lastQuery,
       final String lastColor}) = _$AppState$Impl;
 
-  factory AppState$.fromJson(Map<String, dynamic> json) =
-      _$AppState$Impl.fromJson;
+  factory AppState$.fromJson(Map<String, dynamic> json) = _$AppState$Impl.fromJson;
 
   @override
   bool get isLoading;
@@ -245,6 +222,5 @@ abstract class AppState$ implements AppState {
   String get lastColor;
   @override
   @JsonKey(ignore: true)
-  _$$AppState$ImplCopyWith<_$AppState$Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AppState$ImplCopyWith<_$AppState$Impl> get copyWith => throw _privateConstructorUsedError;
 }
