@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'models/image/image_model.dart';
+import '../models/image/image_model.dart';
 
 class ImageWidget extends StatelessWidget {
   const ImageWidget({super.key, required this.imageClass});

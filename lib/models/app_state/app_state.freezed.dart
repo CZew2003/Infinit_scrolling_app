@@ -20,22 +20,34 @@ AppState _$AppStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppState {
+  bool get isLoading => throw _privateConstructorUsedError;
   List<ImageModel> get images => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  String get lastQuery => throw _privateConstructorUsedError;
+  String get lastColor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AppStateCopyWith<AppState> get copyWith => throw _privateConstructorUsedError;
+  $AppStateCopyWith<AppState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
-  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res, AppState>;
+  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
+      _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({List<ImageModel> images});
+  $Res call(
+      {bool isLoading,
+      List<ImageModel> images,
+      int page,
+      String lastQuery,
+      String lastColor});
 }
 
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCopyWith<$Res> {
+class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
+    implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -46,41 +58,91 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isLoading = null,
     Object? images = null,
+    Object? page = null,
+    Object? lastQuery = null,
+    Object? lastColor = null,
   }) {
     return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<ImageModel>,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      lastQuery: null == lastQuery
+          ? _value.lastQuery
+          : lastQuery // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastColor: null == lastColor
+          ? _value.lastColor
+          : lastColor // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$AppState$ImplCopyWith<$Res> implements $AppStateCopyWith<$Res> {
-  factory _$$AppState$ImplCopyWith(_$AppState$Impl value, $Res Function(_$AppState$Impl) then) =
+abstract class _$$AppState$ImplCopyWith<$Res>
+    implements $AppStateCopyWith<$Res> {
+  factory _$$AppState$ImplCopyWith(
+          _$AppState$Impl value, $Res Function(_$AppState$Impl) then) =
       __$$AppState$ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ImageModel> images});
+  $Res call(
+      {bool isLoading,
+      List<ImageModel> images,
+      int page,
+      String lastQuery,
+      String lastColor});
 }
 
 /// @nodoc
-class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppState$Impl>
+class __$$AppState$ImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppState$Impl>
     implements _$$AppState$ImplCopyWith<$Res> {
-  __$$AppState$ImplCopyWithImpl(_$AppState$Impl _value, $Res Function(_$AppState$Impl) _then) : super(_value, _then);
+  __$$AppState$ImplCopyWithImpl(
+      _$AppState$Impl _value, $Res Function(_$AppState$Impl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isLoading = null,
     Object? images = null,
+    Object? page = null,
+    Object? lastQuery = null,
+    Object? lastColor = null,
   }) {
     return _then(_$AppState$Impl(
-      null == images
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<ImageModel>,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      lastQuery: null == lastQuery
+          ? _value.lastQuery
+          : lastQuery // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastColor: null == lastColor
+          ? _value.lastColor
+          : lastColor // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -88,12 +150,23 @@ class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _
 /// @nodoc
 @JsonSerializable()
 class _$AppState$Impl implements AppState$ {
-  const _$AppState$Impl(final List<ImageModel> images) : _images = images;
+  const _$AppState$Impl(
+      {this.isLoading = false,
+      final List<ImageModel> images = const <ImageModel>[],
+      this.page = 1,
+      this.lastQuery = '',
+      this.lastColor = ''})
+      : _images = images;
 
-  factory _$AppState$Impl.fromJson(Map<String, dynamic> json) => _$$AppState$ImplFromJson(json);
+  factory _$AppState$Impl.fromJson(Map<String, dynamic> json) =>
+      _$$AppState$ImplFromJson(json);
 
+  @override
+  @JsonKey()
+  final bool isLoading;
   final List<ImageModel> _images;
   @override
+  @JsonKey()
   List<ImageModel> get images {
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
@@ -101,8 +174,18 @@ class _$AppState$Impl implements AppState$ {
   }
 
   @override
+  @JsonKey()
+  final int page;
+  @override
+  @JsonKey()
+  final String lastQuery;
+  @override
+  @JsonKey()
+  final String lastColor;
+
+  @override
   String toString() {
-    return 'AppState(images: $images)';
+    return 'AppState(isLoading: $isLoading, images: $images, page: $page, lastQuery: $lastQuery, lastColor: $lastColor)';
   }
 
   @override
@@ -110,12 +193,20 @@ class _$AppState$Impl implements AppState$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppState$Impl &&
-            const DeepCollectionEquality().equals(other._images, _images));
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.lastQuery, lastQuery) ||
+                other.lastQuery == lastQuery) &&
+            (identical(other.lastColor, lastColor) ||
+                other.lastColor == lastColor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_images));
+  int get hashCode => Object.hash(runtimeType, isLoading,
+      const DeepCollectionEquality().hash(_images), page, lastQuery, lastColor);
 
   @JsonKey(ignore: true)
   @override
@@ -132,13 +223,28 @@ class _$AppState$Impl implements AppState$ {
 }
 
 abstract class AppState$ implements AppState {
-  const factory AppState$(final List<ImageModel> images) = _$AppState$Impl;
+  const factory AppState$(
+      {final bool isLoading,
+      final List<ImageModel> images,
+      final int page,
+      final String lastQuery,
+      final String lastColor}) = _$AppState$Impl;
 
-  factory AppState$.fromJson(Map<String, dynamic> json) = _$AppState$Impl.fromJson;
+  factory AppState$.fromJson(Map<String, dynamic> json) =
+      _$AppState$Impl.fromJson;
 
+  @override
+  bool get isLoading;
   @override
   List<ImageModel> get images;
   @override
+  int get page;
+  @override
+  String get lastQuery;
+  @override
+  String get lastColor;
+  @override
   @JsonKey(ignore: true)
-  _$$AppState$ImplCopyWith<_$AppState$Impl> get copyWith => throw _privateConstructorUsedError;
+  _$$AppState$ImplCopyWith<_$AppState$Impl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

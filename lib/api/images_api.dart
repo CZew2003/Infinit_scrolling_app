@@ -11,6 +11,18 @@ class ImagesApi {
 
   Future<List<ImageModel>> loadImages({
     required int page,
+    required String query,
+    required String color,
+  }) async {
+    if (query.isEmpty) {
+      return loadDefaultImages(page: page);
+    } else {
+      return loadSearchImages(page: page, query: query, color: color);
+    }
+  }
+
+  Future<List<ImageModel>> loadDefaultImages({
+    required int page,
   }) async {
     final Uri uri = Uri(scheme: 'https', host: 'api.unsplash.com', pathSegments: <String>[
       'photos'
@@ -27,7 +39,6 @@ class ImagesApi {
     }
 
     final List<dynamic> body = jsonDecode(response.body) as List<dynamic>;
-
     return body
         .map(
           (dynamic e) => ImageModel.fromJson(e as Map<String, dynamic>),
