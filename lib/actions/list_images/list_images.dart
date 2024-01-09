@@ -6,10 +6,7 @@ part 'list_images.freezed.dart';
 
 @freezed
 class ListImages with _$ListImages implements AppAction {
-  const factory ListImages({
-    required String query,
-    required String color,
-  }) = ListImagesStart;
+  const factory ListImages() = ListImagesStart;
 
   const factory ListImages.successful(List<ImageModel> images) = ListImagesSuccessful;
 
