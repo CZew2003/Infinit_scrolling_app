@@ -6,14 +6,11 @@ part of 'app_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AppState$Impl _$$AppState$ImplFromJson(Map<String, dynamic> json) =>
-    _$AppState$Impl(
-      client: json['client'] == null
-          ? null
-          : UserModel.fromJson(json['client'] as Map<String, dynamic>),
+_$AppState$Impl _$$AppState$ImplFromJson(Map<String, dynamic> json) => _$AppState$Impl(
+      client: json['client'] == null ? null : UserModel.fromJson(json['client'] as Map<String, dynamic>),
       isLoading: json['isLoading'] as bool? ?? false,
       images: (json['images'] as List<dynamic>?)
-              ?.map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
+              ?.map((dynamic e) => ImageModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <ImageModel>[],
       page: json['page'] as int? ?? 1,
@@ -21,8 +18,7 @@ _$AppState$Impl _$$AppState$ImplFromJson(Map<String, dynamic> json) =>
       color: json['color'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$AppState$ImplToJson(_$AppState$Impl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$AppState$ImplToJson(_$AppState$Impl instance) => <String, dynamic>{
       'client': instance.client,
       'isLoading': instance.isLoading,
       'images': instance.images,

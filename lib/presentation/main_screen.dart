@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../actions/list_images/list_images.dart';
@@ -123,7 +125,7 @@ class _MainScreenState extends State<MainScreen> {
                                         if (client == null) {
                                           Navigator.pushNamed(context, CreateUserScreen.route);
                                         } else {
-                                          print('creator is: $client and image is ${images[index]}');
+                                          log('creator is: $client and image is ${images[index]}');
                                         }
                                       },
                                       child: Column(
