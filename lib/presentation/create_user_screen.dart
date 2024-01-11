@@ -28,7 +28,7 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const Text(
-                  'Create an user',
+                  'Create an creator',
                   style: TextStyle(color: Colors.lightBlue, fontSize: 32),
                 ),
                 const SizedBox(
@@ -84,7 +84,7 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                       context.dispatch(CreateUser(email: email.text, password: password.text));
                     }
                   },
-                  child: const Text('Create user'),
+                  child: const Text('Create creator'),
                 ),
               ],
             ),

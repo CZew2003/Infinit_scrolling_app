@@ -123,7 +123,7 @@ class _MainScreenState extends State<MainScreen> {
                                         if (client == null) {
                                           Navigator.pushNamed(context, CreateUserScreen.route);
                                         } else {
-                                          print('user is: $client and image is ${images[index]}');
+                                          print('creator is: $client and image is ${images[index]}');
                                         }
                                       },
                                       child: Column(
