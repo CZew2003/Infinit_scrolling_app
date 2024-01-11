@@ -10,7 +10,7 @@ _$AppState$Impl _$$AppState$ImplFromJson(Map<String, dynamic> json) =>
     _$AppState$Impl(
       client: json['client'] == null
           ? null
-          : ClientModel.fromJson(json['client'] as Map<String, dynamic>),
+          : UserModel.fromJson(json['client'] as Map<String, dynamic>),
       isLoading: json['isLoading'] as bool? ?? false,
       images: (json['images'] as List<dynamic>?)
               ?.map((e) => ImageModel.fromJson(e as Map<String, dynamic>))

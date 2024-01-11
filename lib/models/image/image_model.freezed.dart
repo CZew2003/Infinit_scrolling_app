@@ -26,16 +26,19 @@ mixin _$ImageModel {
   String get createdAt => throw _privateConstructorUsedError;
   ImageUrlModel get urls => throw _privateConstructorUsedError;
   int get likes => throw _privateConstructorUsedError;
-  UserModel get user => throw _privateConstructorUsedError;
+  @JsonKey(name: 'user')
+  CreatorModel get creatorModel => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ImageModelCopyWith<ImageModel> get copyWith => throw _privateConstructorUsedError;
+  $ImageModelCopyWith<ImageModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ImageModelCopyWith<$Res> {
-  factory $ImageModelCopyWith(ImageModel value, $Res Function(ImageModel) then) =
+  factory $ImageModelCopyWith(
+          ImageModel value, $Res Function(ImageModel) then) =
       _$ImageModelCopyWithImpl<$Res, ImageModel>;
   @useResult
   $Res call(
@@ -43,14 +46,15 @@ abstract class $ImageModelCopyWith<$Res> {
       @JsonKey(name: 'created_at') String createdAt,
       ImageUrlModel urls,
       int likes,
-      UserModel user});
+      @JsonKey(name: 'user') CreatorModel creatorModel});
 
   $ImageUrlModelCopyWith<$Res> get urls;
-  $UserModelCopyWith<$Res> get user;
+  $CreatorModelCopyWith<$Res> get creatorModel;
 }
 
 /// @nodoc
-class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel> implements $ImageModelCopyWith<$Res> {
+class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel>
+    implements $ImageModelCopyWith<$Res> {
   _$ImageModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -65,7 +69,7 @@ class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel> implements $ImageM
     Object? createdAt = null,
     Object? urls = null,
     Object? likes = null,
-    Object? user = null,
+    Object? creatorModel = null,
   }) {
     return _then(_value.copyWith(
       description: null == description
@@ -84,10 +88,10 @@ class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel> implements $ImageM
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+      creatorModel: null == creatorModel
+          ? _value.creatorModel
+          : creatorModel // ignore: cast_nullable_to_non_nullable
+              as CreatorModel,
     ) as $Val);
   }
 
@@ -101,16 +105,18 @@ class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel> implements $ImageM
 
   @override
   @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get user {
-    return $UserModelCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value) as $Val);
+  $CreatorModelCopyWith<$Res> get creatorModel {
+    return $CreatorModelCopyWith<$Res>(_value.creatorModel, (value) {
+      return _then(_value.copyWith(creatorModel: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ImageModel$ImplCopyWith<$Res> implements $ImageModelCopyWith<$Res> {
-  factory _$$ImageModel$ImplCopyWith(_$ImageModel$Impl value, $Res Function(_$ImageModel$Impl) then) =
+abstract class _$$ImageModel$ImplCopyWith<$Res>
+    implements $ImageModelCopyWith<$Res> {
+  factory _$$ImageModel$ImplCopyWith(
+          _$ImageModel$Impl value, $Res Function(_$ImageModel$Impl) then) =
       __$$ImageModel$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -119,18 +125,20 @@ abstract class _$$ImageModel$ImplCopyWith<$Res> implements $ImageModelCopyWith<$
       @JsonKey(name: 'created_at') String createdAt,
       ImageUrlModel urls,
       int likes,
-      UserModel user});
+      @JsonKey(name: 'user') CreatorModel creatorModel});
 
   @override
   $ImageUrlModelCopyWith<$Res> get urls;
   @override
-  $UserModelCopyWith<$Res> get user;
+  $CreatorModelCopyWith<$Res> get creatorModel;
 }
 
 /// @nodoc
-class __$$ImageModel$ImplCopyWithImpl<$Res> extends _$ImageModelCopyWithImpl<$Res, _$ImageModel$Impl>
+class __$$ImageModel$ImplCopyWithImpl<$Res>
+    extends _$ImageModelCopyWithImpl<$Res, _$ImageModel$Impl>
     implements _$$ImageModel$ImplCopyWith<$Res> {
-  __$$ImageModel$ImplCopyWithImpl(_$ImageModel$Impl _value, $Res Function(_$ImageModel$Impl) _then)
+  __$$ImageModel$ImplCopyWithImpl(
+      _$ImageModel$Impl _value, $Res Function(_$ImageModel$Impl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -140,7 +148,7 @@ class __$$ImageModel$ImplCopyWithImpl<$Res> extends _$ImageModelCopyWithImpl<$Re
     Object? createdAt = null,
     Object? urls = null,
     Object? likes = null,
-    Object? user = null,
+    Object? creatorModel = null,
   }) {
     return _then(_$ImageModel$Impl(
       description: null == description
@@ -159,10 +167,10 @@ class __$$ImageModel$ImplCopyWithImpl<$Res> extends _$ImageModelCopyWithImpl<$Re
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+      creatorModel: null == creatorModel
+          ? _value.creatorModel
+          : creatorModel // ignore: cast_nullable_to_non_nullable
+              as CreatorModel,
     ));
   }
 }
@@ -175,9 +183,10 @@ class _$ImageModel$Impl implements ImageModel$ {
       @JsonKey(name: 'created_at') required this.createdAt,
       required this.urls,
       required this.likes,
-      required this.user});
+      @JsonKey(name: 'user') required this.creatorModel});
 
-  factory _$ImageModel$Impl.fromJson(Map<String, dynamic> json) => _$$ImageModel$ImplFromJson(json);
+  factory _$ImageModel$Impl.fromJson(Map<String, dynamic> json) =>
+      _$$ImageModel$ImplFromJson(json);
 
   @override
   @JsonKey(name: 'alt_description')
@@ -190,11 +199,12 @@ class _$ImageModel$Impl implements ImageModel$ {
   @override
   final int likes;
   @override
-  final UserModel user;
+  @JsonKey(name: 'user')
+  final CreatorModel creatorModel;
 
   @override
   String toString() {
-    return 'ImageModel(description: $description, createdAt: $createdAt, urls: $urls, likes: $likes, creator: $user)';
+    return 'ImageModel(description: $description, createdAt: $createdAt, urls: $urls, likes: $likes, creatorModel: $creatorModel)';
   }
 
   @override
@@ -202,16 +212,20 @@ class _$ImageModel$Impl implements ImageModel$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImageModel$Impl &&
-            (identical(other.description, description) || other.description == description) &&
-            (identical(other.createdAt, createdAt) || other.createdAt == createdAt) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             (identical(other.urls, urls) || other.urls == urls) &&
             (identical(other.likes, likes) || other.likes == likes) &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.creatorModel, creatorModel) ||
+                other.creatorModel == creatorModel));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description, createdAt, urls, likes, user);
+  int get hashCode => Object.hash(
+      runtimeType, description, createdAt, urls, likes, creatorModel);
 
   @JsonKey(ignore: true)
   @override
@@ -229,13 +243,15 @@ class _$ImageModel$Impl implements ImageModel$ {
 
 abstract class ImageModel$ implements ImageModel {
   const factory ImageModel$(
-      {@JsonKey(name: 'alt_description') required final String description,
-      @JsonKey(name: 'created_at') required final String createdAt,
-      required final ImageUrlModel urls,
-      required final int likes,
-      required final UserModel user}) = _$ImageModel$Impl;
+          {@JsonKey(name: 'alt_description') required final String description,
+          @JsonKey(name: 'created_at') required final String createdAt,
+          required final ImageUrlModel urls,
+          required final int likes,
+          @JsonKey(name: 'user') required final CreatorModel creatorModel}) =
+      _$ImageModel$Impl;
 
-  factory ImageModel$.fromJson(Map<String, dynamic> json) = _$ImageModel$Impl.fromJson;
+  factory ImageModel$.fromJson(Map<String, dynamic> json) =
+      _$ImageModel$Impl.fromJson;
 
   @override
   @JsonKey(name: 'alt_description')
@@ -248,8 +264,10 @@ abstract class ImageModel$ implements ImageModel {
   @override
   int get likes;
   @override
-  UserModel get user;
+  @JsonKey(name: 'user')
+  CreatorModel get creatorModel;
   @override
   @JsonKey(ignore: true)
-  _$$ImageModel$ImplCopyWith<_$ImageModel$Impl> get copyWith => throw _privateConstructorUsedError;
+  _$$ImageModel$ImplCopyWith<_$ImageModel$Impl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

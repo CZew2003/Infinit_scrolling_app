@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../creator/user_model.dart';
+import '../creator/creator_model.dart';
 import '../image_url/image_url_model.dart';
 
 part 'image_model.freezed.dart';
@@ -13,7 +13,7 @@ class ImageModel with _$ImageModel {
     @JsonKey(name: 'created_at') required String createdAt,
     required ImageUrlModel urls,
     required int likes,
-    required UserModel user,
+    @JsonKey(name: 'user') required CreatorModel creatorModel,
   }) = ImageModel$;
 
   factory ImageModel.fromJson(Map<dynamic, dynamic> json) => _$ImageModelFromJson(Map<String, dynamic>.from(json));

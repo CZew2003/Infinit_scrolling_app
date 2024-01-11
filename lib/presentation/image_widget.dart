@@ -9,7 +9,7 @@ class ImageWidget extends StatelessWidget {
   final ImageModel imageClass;
 
   Future<void> _launchUrl() async {
-    final Uri uri = Uri.parse(imageClass.user.links.html);
+    final Uri uri = Uri.parse(imageClass.creatorModel.links.html);
     if (!await launchUrl(uri)) {
       throw Exception('Could not launch $uri');
     }
@@ -25,7 +25,7 @@ class ImageWidget extends StatelessWidget {
           InkWell(
             onTap: _launchUrl,
             child: Text(
-              imageClass.user.links.html,
+              imageClass.creatorModel.links.html,
               style: const TextStyle(
                 color: Colors.blue,
                 fontSize: 18,

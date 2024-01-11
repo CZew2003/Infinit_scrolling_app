@@ -19,21 +19,21 @@ mixin _$CreateUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String email, String password) $default, {
-    required TResult Function(ClientModel client) successful,
+    required TResult Function(UserModel userModel) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String email, String password)? $default, {
-    TResult? Function(ClientModel client)? successful,
+    TResult? Function(UserModel userModel)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String email, String password)? $default, {
-    TResult Function(ClientModel client)? successful,
+    TResult Function(UserModel userModel)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) =>
@@ -155,7 +155,7 @@ class _$CreateUserStartImpl implements CreateUserStart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String email, String password) $default, {
-    required TResult Function(ClientModel client) successful,
+    required TResult Function(UserModel userModel) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
     return $default(email, password);
@@ -165,7 +165,7 @@ class _$CreateUserStartImpl implements CreateUserStart {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String email, String password)? $default, {
-    TResult? Function(ClientModel client)? successful,
+    TResult? Function(UserModel userModel)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
     return $default?.call(email, password);
@@ -175,7 +175,7 @@ class _$CreateUserStartImpl implements CreateUserStart {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String email, String password)? $default, {
-    TResult Function(ClientModel client)? successful,
+    TResult Function(UserModel userModel)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -238,9 +238,9 @@ abstract class _$$CreateUserSuccessfulImplCopyWith<$Res> {
           $Res Function(_$CreateUserSuccessfulImpl) then) =
       __$$CreateUserSuccessfulImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ClientModel client});
+  $Res call({UserModel userModel});
 
-  $ClientModelCopyWith<$Res> get client;
+  $UserModelCopyWith<$Res> get userModel;
 }
 
 /// @nodoc
@@ -254,21 +254,21 @@ class __$$CreateUserSuccessfulImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? client = null,
+    Object? userModel = null,
   }) {
     return _then(_$CreateUserSuccessfulImpl(
-      null == client
-          ? _value.client
-          : client // ignore: cast_nullable_to_non_nullable
-              as ClientModel,
+      null == userModel
+          ? _value.userModel
+          : userModel // ignore: cast_nullable_to_non_nullable
+              as UserModel,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ClientModelCopyWith<$Res> get client {
-    return $ClientModelCopyWith<$Res>(_value.client, (value) {
-      return _then(_value.copyWith(client: value));
+  $UserModelCopyWith<$Res> get userModel {
+    return $UserModelCopyWith<$Res>(_value.userModel, (value) {
+      return _then(_value.copyWith(userModel: value));
     });
   }
 }
@@ -276,14 +276,14 @@ class __$$CreateUserSuccessfulImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CreateUserSuccessfulImpl implements CreateUserSuccessful {
-  const _$CreateUserSuccessfulImpl(this.client);
+  const _$CreateUserSuccessfulImpl(this.userModel);
 
   @override
-  final ClientModel client;
+  final UserModel userModel;
 
   @override
   String toString() {
-    return 'CreateUser.successful(client: $client)';
+    return 'CreateUser.successful(userModel: $userModel)';
   }
 
   @override
@@ -291,11 +291,12 @@ class _$CreateUserSuccessfulImpl implements CreateUserSuccessful {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateUserSuccessfulImpl &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.userModel, userModel) ||
+                other.userModel == userModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, client);
+  int get hashCode => Object.hash(runtimeType, userModel);
 
   @JsonKey(ignore: true)
   @override
@@ -309,32 +310,32 @@ class _$CreateUserSuccessfulImpl implements CreateUserSuccessful {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String email, String password) $default, {
-    required TResult Function(ClientModel client) successful,
+    required TResult Function(UserModel userModel) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
-    return successful(client);
+    return successful(userModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String email, String password)? $default, {
-    TResult? Function(ClientModel client)? successful,
+    TResult? Function(UserModel userModel)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
-    return successful?.call(client);
+    return successful?.call(userModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String email, String password)? $default, {
-    TResult Function(ClientModel client)? successful,
+    TResult Function(UserModel userModel)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if (successful != null) {
-      return successful(client);
+      return successful(userModel);
     }
     return orElse();
   }
@@ -375,10 +376,10 @@ class _$CreateUserSuccessfulImpl implements CreateUserSuccessful {
 }
 
 abstract class CreateUserSuccessful implements CreateUser {
-  const factory CreateUserSuccessful(final ClientModel client) =
+  const factory CreateUserSuccessful(final UserModel userModel) =
       _$CreateUserSuccessfulImpl;
 
-  ClientModel get client;
+  UserModel get userModel;
   @JsonKey(ignore: true)
   _$$CreateUserSuccessfulImplCopyWith<_$CreateUserSuccessfulImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -457,7 +458,7 @@ class _$CreateUserErrorImpl implements CreateUserError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String email, String password) $default, {
-    required TResult Function(ClientModel client) successful,
+    required TResult Function(UserModel userModel) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
     return error(this.error, stackTrace);
@@ -467,7 +468,7 @@ class _$CreateUserErrorImpl implements CreateUserError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String email, String password)? $default, {
-    TResult? Function(ClientModel client)? successful,
+    TResult? Function(UserModel userModel)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
     return error?.call(this.error, stackTrace);
@@ -477,7 +478,7 @@ class _$CreateUserErrorImpl implements CreateUserError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String email, String password)? $default, {
-    TResult Function(ClientModel client)? successful,
+    TResult Function(UserModel userModel)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {

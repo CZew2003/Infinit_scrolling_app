@@ -62,6 +62,6 @@ AppState _setQuery(AppState state, SetQuery action) {
 
 AppState _createUserSuccessful(AppState state, CreateUserSuccessful action) {
   return state.copyWith(
-    client: action.client,
+    client: action.userModel,
   );
 }

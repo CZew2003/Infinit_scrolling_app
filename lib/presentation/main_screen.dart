@@ -4,8 +4,8 @@ import '../actions/list_images/list_images.dart';
 import '../actions/set_color/set_color.dart';
 import '../actions/set_query/set_query.dart';
 import '../models/app_state/app_state.dart';
-import '../models/client/client_model.dart';
 import '../models/image/image_model.dart';
+import '../models/user/user_model.dart';
 import '../util/extensions.dart';
 import 'container/client_container.dart';
 import 'container/images_container.dart';
@@ -47,7 +47,7 @@ class _MainScreenState extends State<MainScreen> {
         return IsLoadingContainer(
           builder: (BuildContext context, bool isLoading) {
             return ClientContainer(
-              builder: (BuildContext context, ClientModel? client) {
+              builder: (BuildContext context, UserModel? client) {
                 return RefreshIndicator(
                   onRefresh: () async {
                     _controller1.clear();

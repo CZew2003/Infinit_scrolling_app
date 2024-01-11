@@ -8,8 +8,8 @@ import '../actions/list_images/list_images.dart';
 import '../api/auth_api.dart';
 import '../api/images_api.dart';
 import '../models/app_state/app_state.dart';
-import '../models/client/client_model.dart';
 import '../models/image/image_model.dart';
+import '../models/user/user_model.dart';
 
 class AppEpics extends EpicClass<AppState> {
   AppEpics({
@@ -49,7 +49,7 @@ class AppEpics extends EpicClass<AppState> {
           .asyncMap((_) {
             return authApi.createUser(email: action.email, password: action.password);
           })
-          .map((ClientModel client) => CreateUser.successful(client))
+          .map((UserModel client) => CreateUser.successful(client))
           .onErrorReturnWith((Object error, StackTrace stackTrace) => CreateUser.error(error, stackTrace));
     });
   }

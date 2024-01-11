@@ -20,7 +20,7 @@ AppState _$AppStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppState {
-  ClientModel? get client => throw _privateConstructorUsedError;
+  UserModel? get client => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   List<ImageModel> get images => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
@@ -39,14 +39,14 @@ abstract class $AppStateCopyWith<$Res> {
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
   $Res call(
-      {ClientModel? client,
+      {UserModel? client,
       bool isLoading,
       List<ImageModel> images,
       int page,
       String query,
       String color});
 
-  $ClientModelCopyWith<$Res>? get client;
+  $UserModelCopyWith<$Res>? get client;
 }
 
 /// @nodoc
@@ -73,7 +73,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
       client: freezed == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
-              as ClientModel?,
+              as UserModel?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -99,12 +99,12 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
 
   @override
   @pragma('vm:prefer-inline')
-  $ClientModelCopyWith<$Res>? get client {
+  $UserModelCopyWith<$Res>? get client {
     if (_value.client == null) {
       return null;
     }
 
-    return $ClientModelCopyWith<$Res>(_value.client!, (value) {
+    return $UserModelCopyWith<$Res>(_value.client!, (value) {
       return _then(_value.copyWith(client: value) as $Val);
     });
   }
@@ -119,7 +119,7 @@ abstract class _$$AppState$ImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {ClientModel? client,
+      {UserModel? client,
       bool isLoading,
       List<ImageModel> images,
       int page,
@@ -127,7 +127,7 @@ abstract class _$$AppState$ImplCopyWith<$Res>
       String color});
 
   @override
-  $ClientModelCopyWith<$Res>? get client;
+  $UserModelCopyWith<$Res>? get client;
 }
 
 /// @nodoc
@@ -152,7 +152,7 @@ class __$$AppState$ImplCopyWithImpl<$Res>
       client: freezed == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
-              as ClientModel?,
+              as UserModel?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -194,7 +194,7 @@ class _$AppState$Impl implements AppState$ {
 
   @override
   @JsonKey()
-  final ClientModel? client;
+  final UserModel? client;
   @override
   @JsonKey()
   final bool isLoading;
@@ -257,7 +257,7 @@ class _$AppState$Impl implements AppState$ {
 
 abstract class AppState$ implements AppState {
   const factory AppState$(
-      {final ClientModel? client,
+      {final UserModel? client,
       final bool isLoading,
       final List<ImageModel> images,
       final int page,
@@ -268,7 +268,7 @@ abstract class AppState$ implements AppState {
       _$AppState$Impl.fromJson;
 
   @override
-  ClientModel? get client;
+  UserModel? get client;
   @override
   bool get isLoading;
   @override

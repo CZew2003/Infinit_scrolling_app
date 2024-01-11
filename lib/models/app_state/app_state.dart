@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../client/client_model.dart';
 import '../image/image_model.dart';
+import '../user/user_model.dart';
 
 part 'app_state.freezed.dart';
 part 'app_state.g.dart';
@@ -9,7 +9,7 @@ part 'app_state.g.dart';
 @freezed
 class AppState with _$AppState {
   const factory AppState({
-    @Default(null) ClientModel? client,
+    @Default(null) UserModel? client,
     @Default(false) bool isLoading,
     @Default(<ImageModel>[]) List<ImageModel> images,
     @Default(1) int page,
