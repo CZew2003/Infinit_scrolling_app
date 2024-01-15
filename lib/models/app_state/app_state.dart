@@ -9,7 +9,7 @@ part 'app_state.g.dart';
 @freezed
 class AppState with _$AppState {
   const factory AppState({
-    @Default(null) UserModel? client,
+    @Default(null) UserModel? user,
     @Default(false) bool isLoading,
     @Default(<ImageModel>[]) List<ImageModel> images,
     @Default(1) int page,

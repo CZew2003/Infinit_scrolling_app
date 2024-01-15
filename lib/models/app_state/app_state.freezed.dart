@@ -20,7 +20,7 @@ AppState _$AppStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppState {
-  UserModel? get client => throw _privateConstructorUsedError;
+  UserModel? get user => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   List<ImageModel> get images => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
@@ -29,20 +29,29 @@ mixin _$AppState {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AppStateCopyWith<AppState> get copyWith => throw _privateConstructorUsedError;
+  $AppStateCopyWith<AppState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
-  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res, AppState>;
+  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
+      _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({UserModel? client, bool isLoading, List<ImageModel> images, int page, String query, String color});
+  $Res call(
+      {UserModel? user,
+      bool isLoading,
+      List<ImageModel> images,
+      int page,
+      String query,
+      String color});
 
-  $UserModelCopyWith<$Res>? get client;
+  $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCopyWith<$Res> {
+class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
+    implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -53,7 +62,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? client = freezed,
+    Object? user = freezed,
     Object? isLoading = null,
     Object? images = null,
     Object? page = null,
@@ -61,9 +70,9 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
     Object? color = null,
   }) {
     return _then(_value.copyWith(
-      client: freezed == client
-          ? _value.client
-          : client // ignore: cast_nullable_to_non_nullable
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
               as UserModel?,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -90,38 +99,49 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
 
   @override
   @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res>? get client {
-    if (_value.client == null) {
+  $UserModelCopyWith<$Res>? get user {
+    if (_value.user == null) {
       return null;
     }
 
-    return $UserModelCopyWith<$Res>(_value.client!, (value) {
-      return _then(_value.copyWith(client: value) as $Val);
+    return $UserModelCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$AppState$ImplCopyWith<$Res> implements $AppStateCopyWith<$Res> {
-  factory _$$AppState$ImplCopyWith(_$AppState$Impl value, $Res Function(_$AppState$Impl) then) =
+abstract class _$$AppState$ImplCopyWith<$Res>
+    implements $AppStateCopyWith<$Res> {
+  factory _$$AppState$ImplCopyWith(
+          _$AppState$Impl value, $Res Function(_$AppState$Impl) then) =
       __$$AppState$ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserModel? client, bool isLoading, List<ImageModel> images, int page, String query, String color});
+  $Res call(
+      {UserModel? user,
+      bool isLoading,
+      List<ImageModel> images,
+      int page,
+      String query,
+      String color});
 
   @override
-  $UserModelCopyWith<$Res>? get client;
+  $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
-class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppState$Impl>
+class __$$AppState$ImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppState$Impl>
     implements _$$AppState$ImplCopyWith<$Res> {
-  __$$AppState$ImplCopyWithImpl(_$AppState$Impl _value, $Res Function(_$AppState$Impl) _then) : super(_value, _then);
+  __$$AppState$ImplCopyWithImpl(
+      _$AppState$Impl _value, $Res Function(_$AppState$Impl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? client = freezed,
+    Object? user = freezed,
     Object? isLoading = null,
     Object? images = null,
     Object? page = null,
@@ -129,9 +149,9 @@ class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _
     Object? color = null,
   }) {
     return _then(_$AppState$Impl(
-      client: freezed == client
-          ? _value.client
-          : client // ignore: cast_nullable_to_non_nullable
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
               as UserModel?,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -161,7 +181,7 @@ class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _
 @JsonSerializable()
 class _$AppState$Impl implements AppState$ {
   const _$AppState$Impl(
-      {this.client = null,
+      {this.user = null,
       this.isLoading = false,
       final List<ImageModel> images = const <ImageModel>[],
       this.page = 1,
@@ -169,11 +189,12 @@ class _$AppState$Impl implements AppState$ {
       this.color = ''})
       : _images = images;
 
-  factory _$AppState$Impl.fromJson(Map<String, dynamic> json) => _$$AppState$ImplFromJson(json);
+  factory _$AppState$Impl.fromJson(Map<String, dynamic> json) =>
+      _$$AppState$ImplFromJson(json);
 
   @override
   @JsonKey()
-  final UserModel? client;
+  final UserModel? user;
   @override
   @JsonKey()
   final bool isLoading;
@@ -198,7 +219,7 @@ class _$AppState$Impl implements AppState$ {
 
   @override
   String toString() {
-    return 'AppState(client: $client, isLoading: $isLoading, images: $images, page: $page, query: $query, color: $color)';
+    return 'AppState(user: $user, isLoading: $isLoading, images: $images, page: $page, query: $query, color: $color)';
   }
 
   @override
@@ -206,8 +227,9 @@ class _$AppState$Impl implements AppState$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppState$Impl &&
-            (identical(other.client, client) || other.client == client) &&
-            (identical(other.isLoading, isLoading) || other.isLoading == isLoading) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.query, query) || other.query == query) &&
@@ -216,8 +238,8 @@ class _$AppState$Impl implements AppState$ {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, client, isLoading, const DeepCollectionEquality().hash(_images), page, query, color);
+  int get hashCode => Object.hash(runtimeType, user, isLoading,
+      const DeepCollectionEquality().hash(_images), page, query, color);
 
   @JsonKey(ignore: true)
   @override
@@ -235,17 +257,18 @@ class _$AppState$Impl implements AppState$ {
 
 abstract class AppState$ implements AppState {
   const factory AppState$(
-      {final UserModel? client,
+      {final UserModel? user,
       final bool isLoading,
       final List<ImageModel> images,
       final int page,
       final String query,
       final String color}) = _$AppState$Impl;
 
-  factory AppState$.fromJson(Map<String, dynamic> json) = _$AppState$Impl.fromJson;
+  factory AppState$.fromJson(Map<String, dynamic> json) =
+      _$AppState$Impl.fromJson;
 
   @override
-  UserModel? get client;
+  UserModel? get user;
   @override
   bool get isLoading;
   @override
@@ -258,5 +281,6 @@ abstract class AppState$ implements AppState {
   String get color;
   @override
   @JsonKey(ignore: true)
-  _$$AppState$ImplCopyWith<_$AppState$Impl> get copyWith => throw _privateConstructorUsedError;
+  _$$AppState$ImplCopyWith<_$AppState$Impl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

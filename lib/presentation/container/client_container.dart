@@ -14,7 +14,7 @@ class ClientContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, UserModel?>(
       converter: (Store<AppState> store) {
-        return store.state.client;
+        return store.state.user;
       },
       builder: builder,
     );

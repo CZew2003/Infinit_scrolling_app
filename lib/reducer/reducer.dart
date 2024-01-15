@@ -2,10 +2,14 @@
 import 'dart:developer';
 import 'package:redux/redux.dart';
 
+import '../actions/change_picture/change_picture.dart';
 import '../actions/create_user/create_user.dart';
+import '../actions/get_curent_user/get_current_user.dart';
 import '../actions/list_images/list_images.dart';
 import '../actions/set_color/set_color.dart';
 import '../actions/set_query/set_query.dart';
+import '../actions/sign_in/sign_in.dart';
+import '../actions/sign_out/sign_out.dart';
 import '../models/app_state/app_state.dart';
 import '../models/image/image_model.dart';
 
@@ -20,6 +24,10 @@ AppState reducer(AppState state, dynamic action) {
       TypedReducer<AppState, SetColor>(_setColor).call,
       TypedReducer<AppState, SetQuery>(_setQuery).call,
       TypedReducer<AppState, CreateUserSuccessful>(_createUserSuccessful).call,
+      TypedReducer<AppState, GetCurrentUserSuccessful>(_getCurrentUserSuccessful).call,
+      TypedReducer<AppState, SignOutSuccessful>(_signOutSuccessful).call,
+      TypedReducer<AppState, SignInSuccessful>(_signInSuccessful).call,
+      TypedReducer<AppState, ChangePictureSuccessful>(_createPictureSuccessful).call,
     ],
   )(state, action);
 }
@@ -62,6 +70,22 @@ AppState _setQuery(AppState state, SetQuery action) {
 
 AppState _createUserSuccessful(AppState state, CreateUserSuccessful action) {
   return state.copyWith(
-    client: action.userModel,
+    user: action.userModel,
   );
+}
+
+AppState _getCurrentUserSuccessful(AppState state, GetCurrentUserSuccessful action) {
+  return state.copyWith(user: action.user);
+}
+
+AppState _signOutSuccessful(AppState state, SignOutSuccessful action) {
+  return state.copyWith(user: null);
+}
+
+AppState _signInSuccessful(AppState state, SignInSuccessful action) {
+  return state.copyWith(user: action.user);
+}
+
+AppState _createPictureSuccessful(AppState state, ChangePictureSuccessful action) {
+  return state.copyWith(user: action.user);
 }

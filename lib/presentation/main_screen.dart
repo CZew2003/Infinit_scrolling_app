@@ -15,6 +15,8 @@ import 'container/is_loading_container.dart';
 import 'create_user_screen.dart';
 import 'filter_widget.dart';
 import 'image_widget.dart';
+import 'profile_screen.dart';
+import 'user_avatar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -49,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
         return IsLoadingContainer(
           builder: (BuildContext context, bool isLoading) {
             return ClientContainer(
-              builder: (BuildContext context, UserModel? client) {
+              builder: (BuildContext context, UserModel? user) {
                 return RefreshIndicator(
                   onRefresh: () async {
                     _controller1.clear();
@@ -65,6 +67,15 @@ class _MainScreenState extends State<MainScreen> {
                     appBar: AppBar(
                       backgroundColor: Colors.lightBlueAccent,
                       title: const Text('Images'),
+                      actions: <Widget>[
+                        if (user != null)
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, ProfileScreen.route);
+                            },
+                            child: UserAvatar(user: user),
+                          )
+                      ],
                       centerTitle: true,
                     ),
                     body: Column(
@@ -122,10 +133,10 @@ class _MainScreenState extends State<MainScreen> {
                                   (BuildContext context, int index) {
                                     return GestureDetector(
                                       onTap: () {
-                                        if (client == null) {
+                                        if (user == null) {
                                           Navigator.pushNamed(context, CreateUserScreen.route);
                                         } else {
-                                          log('creator is: $client and image is ${images[index]}');
+                                          log('creator is: $user and image is ${images[index]}');
                                         }
                                       },
                                       child: Column(
