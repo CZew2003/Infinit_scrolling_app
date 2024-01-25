@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import '../actions/create_review/create_review.dart';
 import '../models/image/image_model.dart';
 import '../models/review/review.dart';
+import '../models/user/user_model.dart';
 import '../util/extensions.dart';
+import 'container/client_container.dart';
 import 'container/reviews_container.dart';
 import 'container/selected_image_container.dart';
+import 'container/users_container.dart';
 
 class ImagePage extends StatelessWidget {
   const ImagePage({super.key});
@@ -22,80 +25,104 @@ class ImagePage extends StatelessWidget {
             backgroundColor: Colors.lightBlueAccent,
             centerTitle: true,
           ),
-          body: ReviewsContainer(
-            builder: (BuildContext context, List<Review> reviews) {
-              return CustomScrollView(
-                slivers: <Widget>[
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12),
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(
-                            height: 200,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.network(image!.urls.smallImage),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Text(
-                            image.description,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(fontSize: 20),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+          body: UsersContainer(
+            builder: (BuildContext context, List<UserModel> users) {
+              return ReviewsContainer(
+                builder: (BuildContext context, List<Review> reviews) {
+                  return CustomScrollView(
+                    slivers: <Widget>[
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12),
+                          child: Column(
                             children: <Widget>[
-                              Text(
-                                image.likes.toString(),
-                                style: const TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 20,
+                              SizedBox(
+                                height: 200,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.network(image!.urls.smallImage),
                                 ),
                               ),
-                              const SizedBox(
-                                width: 10,
+                              const SizedBox(height: 20),
+                              Text(
+                                image.description,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(fontSize: 20),
                               ),
-                              const Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                              )
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    image.likes.toString(),
+                                    style: const TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                  )
+                                ],
+                              ),
+                              const Divider(),
                             ],
                           ),
-                          const Divider(),
-                        ],
-                      ),
-                    ),
-                  ),
-                  if (reviews.isNotEmpty)
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (BuildContext context, int index) {
-                          final Review review = reviews[index];
-
-                          return ListTile(
-                            title: Text(review.text),
-                            subtitle: Text(review.createdAt.toString().split('.')[0]),
-                          );
-                        },
-                        childCount: reviews.length,
-                      ),
-                    )
-                  else
-                    const SliverFillRemaining(
-                      child: Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          'Be the first to leave a review',
-                          style: TextStyle(fontSize: 24),
                         ),
                       ),
-                    )
-                ],
+                      if (reviews.isNotEmpty)
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (BuildContext context, int index) {
+                              final Review review = reviews[index];
+                              final UserModel reviewUser =
+                                  users.where((UserModel user) => user.uid == review.uid).first;
+                              print(reviewUser);
+                              return ListTile(
+                                leading: CircleAvatar(
+                                  radius: 28,
+                                  backgroundImage:
+                                      reviewUser.pictureUrl != null ? NetworkImage(reviewUser.pictureUrl!) : null,
+                                  backgroundColor: Colors.amber,
+                                  child: reviewUser.pictureUrl != null
+                                      ? null
+                                      : Text(
+                                          reviewUser.displayName.split('').take(1).join().toUpperCase(),
+                                          style: const TextStyle(fontSize: 24, color: Colors.lightBlue),
+                                        ),
+                                ),
+                                title: Text(review.text),
+                                subtitle: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(reviewUser.displayName),
+                                    Text(review.createdAt.toString().split('.')[0]),
+                                  ],
+                                ),
+                              );
+                            },
+                            childCount: reviews.length,
+                          ),
+                        )
+                      else
+                        const SliverFillRemaining(
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Text(
+                              'Be the first to leave a review',
+                              style: TextStyle(fontSize: 24),
+                            ),
+                          ),
+                        )
+                    ],
+                  );
+                },
               );
             },
           ),
@@ -111,7 +138,7 @@ class ImagePage extends StatelessWidget {
                     content: TextField(
                       controller: _controller,
                     ),
-                    actions: [
+                    actions: <Widget>[
                       FilledButton(
                         onPressed: () {
                           Navigator.pop(context);

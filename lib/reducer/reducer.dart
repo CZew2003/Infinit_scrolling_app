@@ -12,6 +12,7 @@ import '../actions/list_images/list_images.dart';
 import '../actions/select_image/select_image.dart';
 import '../actions/set_color/set_color.dart';
 import '../actions/set_query/set_query.dart';
+import '../actions/set_user_data/set_user_data.dart';
 import '../actions/sign_in/sign_in.dart';
 import '../actions/sign_out/sign_out.dart';
 import '../models/app_state/app_state.dart';
@@ -113,5 +114,5 @@ AppState _createReviewSuccessful(AppState state, CreateReviewSuccessful action) 
 }
 
 AppState _getUsersSuccessful(AppState state, GetUsersSuccessful action) {
-  return state.copyWith(users: <UserModel>[...state.users, ...action.users]);
+  return state.copyWith(users: <UserModel>[...action.users]);
 }

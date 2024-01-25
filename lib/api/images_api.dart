@@ -106,14 +106,23 @@ class ImagesApi {
   Future<List<UserModel>> getUsers(List<String> uids) async {
     final QuerySnapshot<Map<String, dynamic>> snapshot = await firestore.collection('users').get();
 
-    return uids
-        .map((String uid) => UserModel.fromJson(
-            snapshot.docs.where((QueryDocumentSnapshot<Map<String, dynamic>> doc) => doc.id == uid).first.data()))
+    return snapshot.docs
+        .where((QueryDocumentSnapshot<Map<String, dynamic>> doc) => uids.contains(doc.data()['uid']))
+        .map((QueryDocumentSnapshot<Map<String, dynamic>> doc) => UserModel.fromJson(doc.data()))
         .toList();
   }
 
   Future<void> setUserData(UserModel user) async {
-    final DocumentReference<Map<String, dynamic>> ref = firestore.collection('users').doc();
-    ref.set(user.toJson());
+    final QuerySnapshot<Map<String, dynamic>> snapshot =
+        await firestore.collection('users').where('uid', isEqualTo: user.uid).get();
+    if (snapshot.docs.isNotEmpty) {
+      for (final QueryDocumentSnapshot<Map<String, dynamic>> doc in snapshot.docs) {
+        firestore.collection('users').doc(doc.id).update(<Object, Object?>{'pictureUrl': user.pictureUrl});
+      }
+    } else {
+      firestore.collection('users').doc().set(user.toJson());
+    }
+    //ref.update(data)
+    //ref.set(user.toJson());
   }
 }

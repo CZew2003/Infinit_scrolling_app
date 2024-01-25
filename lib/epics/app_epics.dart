@@ -10,6 +10,7 @@ import '../actions/get_curent_user/get_current_user.dart';
 import '../actions/get_reviews/get_reviews.dart';
 import '../actions/get_users/get_users.dart';
 import '../actions/list_images/list_images.dart';
+import '../actions/set_user_data/set_user_data.dart';
 import '../actions/sign_in/sign_in.dart';
 import '../actions/sign_out/sign_out.dart';
 import '../api/auth_api.dart';
@@ -40,6 +41,7 @@ class AppEpics extends EpicClass<AppState> {
       TypedEpic<AppState, GetReviewsStart>(_getReviewsStart).call,
       TypedEpic<AppState, CreateReviewStart>(_createReviewStart).call,
       TypedEpic<AppState, GetUsersStart>(_getUsersStart).call,
+      TypedEpic<AppState, SetUserDataStart>(_setUserDataStart).call,
     ])(actions, store);
   }
 
@@ -64,7 +66,12 @@ class AppEpics extends EpicClass<AppState> {
           .asyncMap((_) {
             return authApi.createUser(email: action.email, password: action.password);
           })
-          .map((UserModel client) => CreateUser.successful(client))
+          .expand((UserModel client) {
+            return <AppAction>[
+              CreateUser.successful(client),
+              SetUserDataStart(client),
+            ];
+          })
           .onErrorReturnWith((Object error, StackTrace stackTrace) => CreateUser.error(error, stackTrace))
           .doOnData(action.result);
     });
@@ -106,12 +113,14 @@ class AppEpics extends EpicClass<AppState> {
 
   Stream<AppAction> _changePictureStart(Stream<ChangePictureStart> actions, EpicStore<AppState> store) {
     return actions.flatMap((ChangePictureStart action) {
-      return Stream<void>.value(null)
-          .asyncMap((_) {
-            return authApi.changeProfilePicture(uid: action.uid, path: action.path);
-          })
-          .map((UserModel? user) => ChangePicture.successful(user))
-          .onErrorReturnWith((Object error, StackTrace stackTrace) => ChangePicture.error(error, stackTrace));
+      return Stream<void>.value(null).asyncMap((_) {
+        return authApi.changeProfilePicture(uid: action.uid, path: action.path);
+      }).expand((UserModel? user) {
+        return <AppAction>[
+          ChangePicture.successful(user),
+          SetUserDataStart(user!),
+        ];
+      }).onErrorReturnWith((Object error, StackTrace stackTrace) => ChangePicture.error(error, stackTrace));
     });
   }
 
@@ -120,12 +129,7 @@ class AppEpics extends EpicClass<AppState> {
       return Stream<void>.value(null).asyncMap((_) {
         return api.getReviews(action.imageId);
       }).expand((List<Review> reviews) {
-        final List<String> uids = reviews
-            .map((Review review) => review.uid)
-            .toSet()
-            .where((String uid) => store.state.users.where((UserModel user) => user.uid == uid).isEmpty)
-            .toList();
-
+        final List<String> uids = reviews.map((Review review) => review.uid).toSet().toList();
         return <AppAction>[
           if (uids.isNotEmpty) GetUsersStart(uids),
           GetReviews.successful(reviews),
@@ -136,12 +140,14 @@ class AppEpics extends EpicClass<AppState> {
 
   Stream<AppAction> _createReviewStart(Stream<CreateReviewStart> actions, EpicStore<AppState> store) {
     return actions.flatMap((CreateReviewStart action) {
-      return Stream<void>.value(null)
-          .asyncMap((_) {
-            return api.createReview(imageId: action.imageId, text: action.text, uid: store.state.user!.uid);
-          })
-          .map((Review review) => CreateReview.successful(review))
-          .onErrorReturnWith((Object error, StackTrace stackTrace) => CreateReview.error(error, stackTrace));
+      return Stream<void>.value(null).asyncMap((_) {
+        return api.createReview(imageId: action.imageId, text: action.text, uid: store.state.user!.uid);
+      }).expand((Review review) {
+        return <AppAction>[
+          CreateReview.successful(review),
+          GetUsersStart(List<String>.of(<String>[review.uid])),
+        ];
+      }).onErrorReturnWith((Object error, StackTrace stackTrace) => CreateReview.error(error, stackTrace));
     });
   }
 
@@ -153,6 +159,18 @@ class AppEpics extends EpicClass<AppState> {
           })
           .map((List<UserModel> users) => GetUsers.successful(users))
           .onErrorReturnWith((Object error, StackTrace stackTrace) => GetUsers.error(error, stackTrace));
+    });
+  }
+
+  Stream<AppAction> _setUserDataStart(Stream<SetUserDataStart> actions, EpicStore<AppState> store) {
+    print('da');
+    return actions.flatMap((SetUserDataStart action) {
+      return Stream<void>.value(null)
+          .asyncMap((_) {
+            return api.setUserData(action.user);
+          })
+          .map((_) => const SetUserData.successful())
+          .onErrorReturnWith((Object error, StackTrace stackTrace) => SetUserData.error(error, stackTrace));
     });
   }
 }
