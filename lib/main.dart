@@ -14,6 +14,7 @@ import 'api_key.dart';
 import 'epics/app_epics.dart';
 import 'firebase_options.dart';
 import 'models/app_state/app_state.dart';
+import 'presentation/container/image_page.dart';
 import 'presentation/create_user_screen.dart';
 import 'presentation/login_screen.dart';
 import 'presentation/main_screen.dart';
@@ -69,6 +70,7 @@ class MyApp extends StatelessWidget {
           CreateUserScreen.route: (BuildContext context) => const CreateUserScreen(),
           LoginScreen.route: (BuildContext context) => const LoginScreen(),
           ProfileScreen.route: (BuildContext context) => const ProfileScreen(),
+          ImagePage.route: (BuildContext context) => const ImagePage(),
         },
       ),
     );

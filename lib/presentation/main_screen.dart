@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 
 import '../actions/list_images/list_images.dart';
+import '../actions/select_image/select_image.dart';
 import '../actions/set_color/set_color.dart';
 import '../actions/set_query/set_query.dart';
 import '../models/app_state/app_state.dart';
@@ -10,6 +11,7 @@ import '../models/image/image_model.dart';
 import '../models/user/user_model.dart';
 import '../util/extensions.dart';
 import 'container/client_container.dart';
+import 'container/image_page.dart';
 import 'container/images_container.dart';
 import 'container/is_loading_container.dart';
 import 'create_user_screen.dart';
@@ -69,11 +71,14 @@ class _MainScreenState extends State<MainScreen> {
                       title: const Text('Images'),
                       actions: <Widget>[
                         if (user != null)
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, ProfileScreen.route);
-                            },
-                            child: UserAvatar(user: user),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, ProfileScreen.route);
+                              },
+                              child: UserAvatar(user: user),
+                            ),
                           )
                       ],
                       centerTitle: true,
@@ -136,7 +141,8 @@ class _MainScreenState extends State<MainScreen> {
                                         if (user == null) {
                                           Navigator.pushNamed(context, CreateUserScreen.route);
                                         } else {
-                                          log('creator is: $user and image is ${images[index]}');
+                                          context.dispatch(SelectImage(images[index]));
+                                          Navigator.pushNamed(context, ImagePage.route);
                                         }
                                       },
                                       child: Column(

@@ -10,6 +10,7 @@ part 'app_state.g.dart';
 class AppState with _$AppState {
   const factory AppState({
     @Default(null) UserModel? user,
+    ImageModel? selectedImage,
     @Default(false) bool isLoading,
     @Default(<ImageModel>[]) List<ImageModel> images,
     @Default(1) int page,

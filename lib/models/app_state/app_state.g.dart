@@ -11,6 +11,9 @@ _$AppState$Impl _$$AppState$ImplFromJson(Map<String, dynamic> json) =>
       user: json['user'] == null
           ? null
           : UserModel.fromJson(json['user'] as Map<String, dynamic>),
+      selectedImage: json['selectedImage'] == null
+          ? null
+          : ImageModel.fromJson(json['selectedImage'] as Map<String, dynamic>),
       isLoading: json['isLoading'] as bool? ?? false,
       images: (json['images'] as List<dynamic>?)
               ?.map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
@@ -24,6 +27,7 @@ _$AppState$Impl _$$AppState$ImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$AppState$ImplToJson(_$AppState$Impl instance) =>
     <String, dynamic>{
       'user': instance.user,
+      'selectedImage': instance.selectedImage,
       'isLoading': instance.isLoading,
       'images': instance.images,
       'page': instance.page,

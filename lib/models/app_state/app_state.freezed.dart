@@ -21,6 +21,7 @@ AppState _$AppStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AppState {
   UserModel? get user => throw _privateConstructorUsedError;
+  ImageModel? get selectedImage => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   List<ImageModel> get images => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
@@ -40,6 +41,7 @@ abstract class $AppStateCopyWith<$Res> {
   @useResult
   $Res call(
       {UserModel? user,
+      ImageModel? selectedImage,
       bool isLoading,
       List<ImageModel> images,
       int page,
@@ -47,6 +49,7 @@ abstract class $AppStateCopyWith<$Res> {
       String color});
 
   $UserModelCopyWith<$Res>? get user;
+  $ImageModelCopyWith<$Res>? get selectedImage;
 }
 
 /// @nodoc
@@ -63,6 +66,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   @override
   $Res call({
     Object? user = freezed,
+    Object? selectedImage = freezed,
     Object? isLoading = null,
     Object? images = null,
     Object? page = null,
@@ -74,6 +78,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel?,
+      selectedImage: freezed == selectedImage
+          ? _value.selectedImage
+          : selectedImage // ignore: cast_nullable_to_non_nullable
+              as ImageModel?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -108,6 +116,18 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
       return _then(_value.copyWith(user: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageModelCopyWith<$Res>? get selectedImage {
+    if (_value.selectedImage == null) {
+      return null;
+    }
+
+    return $ImageModelCopyWith<$Res>(_value.selectedImage!, (value) {
+      return _then(_value.copyWith(selectedImage: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -120,6 +140,7 @@ abstract class _$$AppState$ImplCopyWith<$Res>
   @useResult
   $Res call(
       {UserModel? user,
+      ImageModel? selectedImage,
       bool isLoading,
       List<ImageModel> images,
       int page,
@@ -128,6 +149,8 @@ abstract class _$$AppState$ImplCopyWith<$Res>
 
   @override
   $UserModelCopyWith<$Res>? get user;
+  @override
+  $ImageModelCopyWith<$Res>? get selectedImage;
 }
 
 /// @nodoc
@@ -142,6 +165,7 @@ class __$$AppState$ImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
+    Object? selectedImage = freezed,
     Object? isLoading = null,
     Object? images = null,
     Object? page = null,
@@ -153,6 +177,10 @@ class __$$AppState$ImplCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel?,
+      selectedImage: freezed == selectedImage
+          ? _value.selectedImage
+          : selectedImage // ignore: cast_nullable_to_non_nullable
+              as ImageModel?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -182,6 +210,7 @@ class __$$AppState$ImplCopyWithImpl<$Res>
 class _$AppState$Impl implements AppState$ {
   const _$AppState$Impl(
       {this.user = null,
+      this.selectedImage,
       this.isLoading = false,
       final List<ImageModel> images = const <ImageModel>[],
       this.page = 1,
@@ -195,6 +224,8 @@ class _$AppState$Impl implements AppState$ {
   @override
   @JsonKey()
   final UserModel? user;
+  @override
+  final ImageModel? selectedImage;
   @override
   @JsonKey()
   final bool isLoading;
@@ -219,7 +250,7 @@ class _$AppState$Impl implements AppState$ {
 
   @override
   String toString() {
-    return 'AppState(user: $user, isLoading: $isLoading, images: $images, page: $page, query: $query, color: $color)';
+    return 'AppState(user: $user, selectedImage: $selectedImage, isLoading: $isLoading, images: $images, page: $page, query: $query, color: $color)';
   }
 
   @override
@@ -228,6 +259,8 @@ class _$AppState$Impl implements AppState$ {
         (other.runtimeType == runtimeType &&
             other is _$AppState$Impl &&
             (identical(other.user, user) || other.user == user) &&
+            (identical(other.selectedImage, selectedImage) ||
+                other.selectedImage == selectedImage) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
@@ -238,7 +271,7 @@ class _$AppState$Impl implements AppState$ {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, user, isLoading,
+  int get hashCode => Object.hash(runtimeType, user, selectedImage, isLoading,
       const DeepCollectionEquality().hash(_images), page, query, color);
 
   @JsonKey(ignore: true)
@@ -258,6 +291,7 @@ class _$AppState$Impl implements AppState$ {
 abstract class AppState$ implements AppState {
   const factory AppState$(
       {final UserModel? user,
+      final ImageModel? selectedImage,
       final bool isLoading,
       final List<ImageModel> images,
       final int page,
@@ -269,6 +303,8 @@ abstract class AppState$ implements AppState {
 
   @override
   UserModel? get user;
+  @override
+  ImageModel? get selectedImage;
   @override
   bool get isLoading;
   @override

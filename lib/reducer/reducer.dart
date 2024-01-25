@@ -6,6 +6,7 @@ import '../actions/change_picture/change_picture.dart';
 import '../actions/create_user/create_user.dart';
 import '../actions/get_curent_user/get_current_user.dart';
 import '../actions/list_images/list_images.dart';
+import '../actions/select_image/select_image.dart';
 import '../actions/set_color/set_color.dart';
 import '../actions/set_query/set_query.dart';
 import '../actions/sign_in/sign_in.dart';
@@ -28,6 +29,7 @@ AppState reducer(AppState state, dynamic action) {
       TypedReducer<AppState, SignOutSuccessful>(_signOutSuccessful).call,
       TypedReducer<AppState, SignInSuccessful>(_signInSuccessful).call,
       TypedReducer<AppState, ChangePictureSuccessful>(_createPictureSuccessful).call,
+      TypedReducer<AppState, SelectImage>(_selectImage).call,
     ],
   )(state, action);
 }
@@ -88,4 +90,8 @@ AppState _signInSuccessful(AppState state, SignInSuccessful action) {
 
 AppState _createPictureSuccessful(AppState state, ChangePictureSuccessful action) {
   return state.copyWith(user: action.user);
+}
+
+AppState _selectImage(AppState state, SelectImage action) {
+  return state.copyWith(selectedImage: action.image);
 }
