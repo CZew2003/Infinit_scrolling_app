@@ -20,6 +20,7 @@ ImageModel _$ImageModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImageModel {
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'alt_description')
   String get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -42,7 +43,8 @@ abstract class $ImageModelCopyWith<$Res> {
       _$ImageModelCopyWithImpl<$Res, ImageModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'alt_description') String description,
+      {String id,
+      @JsonKey(name: 'alt_description') String description,
       @JsonKey(name: 'created_at') String createdAt,
       ImageUrlModel urls,
       int likes,
@@ -65,6 +67,7 @@ class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? description = null,
     Object? createdAt = null,
     Object? urls = null,
@@ -72,6 +75,10 @@ class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel>
     Object? creatorModel = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -121,7 +128,8 @@ abstract class _$$ImageModel$ImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'alt_description') String description,
+      {String id,
+      @JsonKey(name: 'alt_description') String description,
       @JsonKey(name: 'created_at') String createdAt,
       ImageUrlModel urls,
       int likes,
@@ -144,6 +152,7 @@ class __$$ImageModel$ImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? description = null,
     Object? createdAt = null,
     Object? urls = null,
@@ -151,6 +160,10 @@ class __$$ImageModel$ImplCopyWithImpl<$Res>
     Object? creatorModel = null,
   }) {
     return _then(_$ImageModel$Impl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -179,7 +192,8 @@ class __$$ImageModel$ImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ImageModel$Impl implements ImageModel$ {
   const _$ImageModel$Impl(
-      {@JsonKey(name: 'alt_description') required this.description,
+      {required this.id,
+      @JsonKey(name: 'alt_description') required this.description,
       @JsonKey(name: 'created_at') required this.createdAt,
       required this.urls,
       required this.likes,
@@ -188,6 +202,8 @@ class _$ImageModel$Impl implements ImageModel$ {
   factory _$ImageModel$Impl.fromJson(Map<String, dynamic> json) =>
       _$$ImageModel$ImplFromJson(json);
 
+  @override
+  final String id;
   @override
   @JsonKey(name: 'alt_description')
   final String description;
@@ -204,7 +220,7 @@ class _$ImageModel$Impl implements ImageModel$ {
 
   @override
   String toString() {
-    return 'ImageModel(description: $description, createdAt: $createdAt, urls: $urls, likes: $likes, creatorModel: $creatorModel)';
+    return 'ImageModel(id: $id, description: $description, createdAt: $createdAt, urls: $urls, likes: $likes, creatorModel: $creatorModel)';
   }
 
   @override
@@ -212,6 +228,7 @@ class _$ImageModel$Impl implements ImageModel$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImageModel$Impl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.createdAt, createdAt) ||
@@ -225,7 +242,7 @@ class _$ImageModel$Impl implements ImageModel$ {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, description, createdAt, urls, likes, creatorModel);
+      runtimeType, id, description, createdAt, urls, likes, creatorModel);
 
   @JsonKey(ignore: true)
   @override
@@ -243,7 +260,8 @@ class _$ImageModel$Impl implements ImageModel$ {
 
 abstract class ImageModel$ implements ImageModel {
   const factory ImageModel$(
-          {@JsonKey(name: 'alt_description') required final String description,
+          {required final String id,
+          @JsonKey(name: 'alt_description') required final String description,
           @JsonKey(name: 'created_at') required final String createdAt,
           required final ImageUrlModel urls,
           required final int likes,
@@ -253,6 +271,8 @@ abstract class ImageModel$ implements ImageModel {
   factory ImageModel$.fromJson(Map<String, dynamic> json) =
       _$ImageModel$Impl.fromJson;
 
+  @override
+  String get id;
   @override
   @JsonKey(name: 'alt_description')
   String get description;

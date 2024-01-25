@@ -9,6 +9,7 @@ part 'image_model.g.dart';
 @freezed
 class ImageModel with _$ImageModel {
   const factory ImageModel({
+    required String id,
     @JsonKey(name: 'alt_description') required String description,
     @JsonKey(name: 'created_at') required String createdAt,
     required ImageUrlModel urls,

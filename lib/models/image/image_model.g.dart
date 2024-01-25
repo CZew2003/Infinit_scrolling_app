@@ -8,6 +8,7 @@ part of 'image_model.dart';
 
 _$ImageModel$Impl _$$ImageModel$ImplFromJson(Map<String, dynamic> json) =>
     _$ImageModel$Impl(
+      id: json['id'] as String,
       description: json['alt_description'] as String,
       createdAt: json['created_at'] as String,
       urls: ImageUrlModel.fromJson(json['urls'] as Map<String, dynamic>),
@@ -17,6 +18,7 @@ _$ImageModel$Impl _$$ImageModel$ImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$ImageModel$ImplToJson(_$ImageModel$Impl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'alt_description': instance.description,
       'created_at': instance.createdAt,
       'urls': instance.urls,

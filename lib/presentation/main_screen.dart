@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
+import '../actions/get_reviews/get_reviews.dart';
 import '../actions/list_images/list_images.dart';
 import '../actions/select_image/select_image.dart';
 import '../actions/set_color/set_color.dart';
@@ -11,11 +10,11 @@ import '../models/image/image_model.dart';
 import '../models/user/user_model.dart';
 import '../util/extensions.dart';
 import 'container/client_container.dart';
-import 'container/image_page.dart';
 import 'container/images_container.dart';
 import 'container/is_loading_container.dart';
 import 'create_user_screen.dart';
 import 'filter_widget.dart';
+import 'image_page.dart';
 import 'image_widget.dart';
 import 'profile_screen.dart';
 import 'user_avatar.dart';
@@ -141,7 +140,9 @@ class _MainScreenState extends State<MainScreen> {
                                         if (user == null) {
                                           Navigator.pushNamed(context, CreateUserScreen.route);
                                         } else {
-                                          context.dispatch(SelectImage(images[index]));
+                                          context
+                                            ..dispatch(SelectImage(images[index]))
+                                            ..dispatch(GetReviews(imageId: images[index].id));
                                           Navigator.pushNamed(context, ImagePage.route);
                                         }
                                       },

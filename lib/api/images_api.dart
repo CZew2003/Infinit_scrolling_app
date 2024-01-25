@@ -1,13 +1,16 @@
 import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart';
 
 import '../models/image/image_model.dart';
+import '../models/review/review.dart';
 
 class ImagesApi {
-  ImagesApi({required this.client, required this.apiKey});
+  ImagesApi({required this.client, required this.apiKey, required this.firestore});
 
   final Client client;
   final String apiKey;
+  final FirebaseFirestore firestore;
 
   Future<List<ImageModel>> loadImages({
     required int page,
@@ -77,5 +80,11 @@ class ImagesApi {
           (dynamic e) => ImageModel.fromJson(e as Map<String, dynamic>),
         )
         .toList();
+  }
+
+  Future<List<Review>> getReviews(String imageId) async {
+    final QuerySnapshot<Map<String, dynamic>> snapshot =
+        await firestore.collection('movies/$imageId/reviews').orderBy('createdAt', descending: true).get();
+    return snapshot.docs.map((QueryDocumentSnapshot<Map<String, dynamic>> doc) => Review.fromJson(doc.data())).toList();
   }
 }

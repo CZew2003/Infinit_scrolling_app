@@ -6,6 +6,7 @@ import '../actions/app_action.dart';
 import '../actions/change_picture/change_picture.dart';
 import '../actions/create_user/create_user.dart';
 import '../actions/get_curent_user/get_current_user.dart';
+import '../actions/get_reviews/get_reviews.dart';
 import '../actions/list_images/list_images.dart';
 import '../actions/sign_in/sign_in.dart';
 import '../actions/sign_out/sign_out.dart';
@@ -13,6 +14,7 @@ import '../api/auth_api.dart';
 import '../api/images_api.dart';
 import '../models/app_state/app_state.dart';
 import '../models/image/image_model.dart';
+import '../models/review/review.dart';
 import '../models/user/user_model.dart';
 
 class AppEpics extends EpicClass<AppState> {
@@ -33,6 +35,7 @@ class AppEpics extends EpicClass<AppState> {
       TypedEpic<AppState, SignOutStart>(_signOutStart).call,
       TypedEpic<AppState, SignInStart>(_signInStart).call,
       TypedEpic<AppState, ChangePictureStart>(_changePictureStart).call,
+      TypedEpic<AppState, GetReviewsStart>(_getReviewsStart).call,
     ])(actions, store);
   }
 
@@ -105,6 +108,17 @@ class AppEpics extends EpicClass<AppState> {
           })
           .map((UserModel? user) => ChangePicture.successful(user))
           .onErrorReturnWith((Object error, StackTrace stackTrace) => ChangePicture.error(error, stackTrace));
+    });
+  }
+
+  Stream<AppAction> _getReviewsStart(Stream<GetReviewsStart> actions, EpicStore<AppState> store) {
+    return actions.flatMap((GetReviewsStart action) {
+      return Stream<void>.value(null)
+          .asyncMap((_) {
+            return api.getReviews(action.imageId);
+          })
+          .map((List<Review> reviews) => GetReviews.successful(reviews))
+          .onErrorReturnWith((Object error, StackTrace stackTrace) => GetReviews.error(error, stackTrace));
     });
   }
 }

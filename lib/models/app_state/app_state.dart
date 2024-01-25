@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../image/image_model.dart';
+import '../review/review.dart';
 import '../user/user_model.dart';
 
 part 'app_state.freezed.dart';
@@ -13,6 +14,7 @@ class AppState with _$AppState {
     ImageModel? selectedImage,
     @Default(false) bool isLoading,
     @Default(<ImageModel>[]) List<ImageModel> images,
+    @Default(<Review>[]) List<Review> reviews,
     @Default(1) int page,
     @Default('') String query,
     @Default('') String color,

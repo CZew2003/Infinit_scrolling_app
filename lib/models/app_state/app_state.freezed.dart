@@ -24,6 +24,7 @@ mixin _$AppState {
   ImageModel? get selectedImage => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   List<ImageModel> get images => throw _privateConstructorUsedError;
+  List<Review> get reviews => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   String get query => throw _privateConstructorUsedError;
   String get color => throw _privateConstructorUsedError;
@@ -44,6 +45,7 @@ abstract class $AppStateCopyWith<$Res> {
       ImageModel? selectedImage,
       bool isLoading,
       List<ImageModel> images,
+      List<Review> reviews,
       int page,
       String query,
       String color});
@@ -69,6 +71,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
     Object? selectedImage = freezed,
     Object? isLoading = null,
     Object? images = null,
+    Object? reviews = null,
     Object? page = null,
     Object? query = null,
     Object? color = null,
@@ -90,6 +93,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<ImageModel>,
+      reviews: null == reviews
+          ? _value.reviews
+          : reviews // ignore: cast_nullable_to_non_nullable
+              as List<Review>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -143,6 +150,7 @@ abstract class _$$AppState$ImplCopyWith<$Res>
       ImageModel? selectedImage,
       bool isLoading,
       List<ImageModel> images,
+      List<Review> reviews,
       int page,
       String query,
       String color});
@@ -168,6 +176,7 @@ class __$$AppState$ImplCopyWithImpl<$Res>
     Object? selectedImage = freezed,
     Object? isLoading = null,
     Object? images = null,
+    Object? reviews = null,
     Object? page = null,
     Object? query = null,
     Object? color = null,
@@ -189,6 +198,10 @@ class __$$AppState$ImplCopyWithImpl<$Res>
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<ImageModel>,
+      reviews: null == reviews
+          ? _value._reviews
+          : reviews // ignore: cast_nullable_to_non_nullable
+              as List<Review>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -213,10 +226,12 @@ class _$AppState$Impl implements AppState$ {
       this.selectedImage,
       this.isLoading = false,
       final List<ImageModel> images = const <ImageModel>[],
+      final List<Review> reviews = const <Review>[],
       this.page = 1,
       this.query = '',
       this.color = ''})
-      : _images = images;
+      : _images = images,
+        _reviews = reviews;
 
   factory _$AppState$Impl.fromJson(Map<String, dynamic> json) =>
       _$$AppState$ImplFromJson(json);
@@ -238,6 +253,15 @@ class _$AppState$Impl implements AppState$ {
     return EqualUnmodifiableListView(_images);
   }
 
+  final List<Review> _reviews;
+  @override
+  @JsonKey()
+  List<Review> get reviews {
+    if (_reviews is EqualUnmodifiableListView) return _reviews;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_reviews);
+  }
+
   @override
   @JsonKey()
   final int page;
@@ -250,7 +274,7 @@ class _$AppState$Impl implements AppState$ {
 
   @override
   String toString() {
-    return 'AppState(user: $user, selectedImage: $selectedImage, isLoading: $isLoading, images: $images, page: $page, query: $query, color: $color)';
+    return 'AppState(user: $user, selectedImage: $selectedImage, isLoading: $isLoading, images: $images, reviews: $reviews, page: $page, query: $query, color: $color)';
   }
 
   @override
@@ -264,6 +288,7 @@ class _$AppState$Impl implements AppState$ {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
+            const DeepCollectionEquality().equals(other._reviews, _reviews) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.query, query) || other.query == query) &&
             (identical(other.color, color) || other.color == color));
@@ -271,8 +296,16 @@ class _$AppState$Impl implements AppState$ {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, user, selectedImage, isLoading,
-      const DeepCollectionEquality().hash(_images), page, query, color);
+  int get hashCode => Object.hash(
+      runtimeType,
+      user,
+      selectedImage,
+      isLoading,
+      const DeepCollectionEquality().hash(_images),
+      const DeepCollectionEquality().hash(_reviews),
+      page,
+      query,
+      color);
 
   @JsonKey(ignore: true)
   @override
@@ -294,6 +327,7 @@ abstract class AppState$ implements AppState {
       final ImageModel? selectedImage,
       final bool isLoading,
       final List<ImageModel> images,
+      final List<Review> reviews,
       final int page,
       final String query,
       final String color}) = _$AppState$Impl;
@@ -309,6 +343,8 @@ abstract class AppState$ implements AppState {
   bool get isLoading;
   @override
   List<ImageModel> get images;
+  @override
+  List<Review> get reviews;
   @override
   int get page;
   @override

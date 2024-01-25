@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -14,7 +15,7 @@ import 'api_key.dart';
 import 'epics/app_epics.dart';
 import 'firebase_options.dart';
 import 'models/app_state/app_state.dart';
-import 'presentation/container/image_page.dart';
+import 'presentation/image_page.dart';
 import 'presentation/create_user_screen.dart';
 import 'presentation/login_screen.dart';
 import 'presentation/main_screen.dart';
@@ -27,8 +28,9 @@ void main() async {
   final Client client = Client();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final FirebaseStorage firebaseStorage = FirebaseStorage.instance;
-  final ImagesApi api = ImagesApi(client: client, apiKey: apiKey);
+  final ImagesApi api = ImagesApi(client: client, apiKey: apiKey, firestore: firestore);
   final AuthApi authApi = AuthApi(auth: auth, storage: firebaseStorage);
   final AppEpics appEpics = AppEpics(api: api, authApi: authApi);
   final Store<AppState> store = Store<AppState>(
