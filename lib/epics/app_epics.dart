@@ -8,6 +8,7 @@ import '../actions/create_review/create_review.dart';
 import '../actions/create_user/create_user.dart';
 import '../actions/get_curent_user/get_current_user.dart';
 import '../actions/get_reviews/get_reviews.dart';
+import '../actions/get_users/get_users.dart';
 import '../actions/list_images/list_images.dart';
 import '../actions/sign_in/sign_in.dart';
 import '../actions/sign_out/sign_out.dart';
@@ -38,6 +39,7 @@ class AppEpics extends EpicClass<AppState> {
       TypedEpic<AppState, ChangePictureStart>(_changePictureStart).call,
       TypedEpic<AppState, GetReviewsStart>(_getReviewsStart).call,
       TypedEpic<AppState, CreateReviewStart>(_createReviewStart).call,
+      TypedEpic<AppState, GetUsersStart>(_getUsersStart).call,
     ])(actions, store);
   }
 
@@ -115,12 +117,20 @@ class AppEpics extends EpicClass<AppState> {
 
   Stream<AppAction> _getReviewsStart(Stream<GetReviewsStart> actions, EpicStore<AppState> store) {
     return actions.flatMap((GetReviewsStart action) {
-      return Stream<void>.value(null)
-          .asyncMap((_) {
-            return api.getReviews(action.imageId);
-          })
-          .map((List<Review> reviews) => GetReviews.successful(reviews))
-          .onErrorReturnWith((Object error, StackTrace stackTrace) => GetReviews.error(error, stackTrace));
+      return Stream<void>.value(null).asyncMap((_) {
+        return api.getReviews(action.imageId);
+      }).expand((List<Review> reviews) {
+        final List<String> uids = reviews
+            .map((Review review) => review.uid)
+            .toSet()
+            .where((String uid) => store.state.users.where((UserModel user) => user.uid == uid).isEmpty)
+            .toList();
+
+        return <AppAction>[
+          if (uids.isNotEmpty) GetUsersStart(uids),
+          GetReviews.successful(reviews),
+        ];
+      }).onErrorReturnWith((Object error, StackTrace stackTrace) => GetReviews.error(error, stackTrace));
     });
   }
 
@@ -132,6 +142,17 @@ class AppEpics extends EpicClass<AppState> {
           })
           .map((Review review) => CreateReview.successful(review))
           .onErrorReturnWith((Object error, StackTrace stackTrace) => CreateReview.error(error, stackTrace));
+    });
+  }
+
+  Stream<AppAction> _getUsersStart(Stream<GetUsersStart> actions, EpicStore<AppState> store) {
+    return actions.flatMap((GetUsersStart action) {
+      return Stream<void>.value(null)
+          .asyncMap((_) {
+            return api.getUsers(action.uids);
+          })
+          .map((List<UserModel> users) => GetUsers.successful(users))
+          .onErrorReturnWith((Object error, StackTrace stackTrace) => GetUsers.error(error, stackTrace));
     });
   }
 }

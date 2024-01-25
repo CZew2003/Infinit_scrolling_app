@@ -14,6 +14,7 @@ class AppState with _$AppState {
     ImageModel? selectedImage,
     @Default(false) bool isLoading,
     @Default(<ImageModel>[]) List<ImageModel> images,
+    @Default(<UserModel>[]) List<UserModel> users,
     @Default(<Review>[]) List<Review> reviews,
     @Default(1) int page,
     @Default('') String query,

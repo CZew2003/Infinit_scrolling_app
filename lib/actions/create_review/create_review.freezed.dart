@@ -239,6 +239,8 @@ abstract class _$$CreateReviewSuccessfulImplCopyWith<$Res> {
       __$$CreateReviewSuccessfulImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Review review});
+
+  $ReviewCopyWith<$Res> get review;
 }
 
 /// @nodoc
@@ -253,14 +255,22 @@ class __$$CreateReviewSuccessfulImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? review = freezed,
+    Object? review = null,
   }) {
     return _then(_$CreateReviewSuccessfulImpl(
-      freezed == review
+      null == review
           ? _value.review
           : review // ignore: cast_nullable_to_non_nullable
               as Review,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ReviewCopyWith<$Res> get review {
+    return $ReviewCopyWith<$Res>(_value.review, (value) {
+      return _then(_value.copyWith(review: value));
+    });
   }
 }
 
@@ -282,12 +292,11 @@ class _$CreateReviewSuccessfulImpl implements CreateReviewSuccessful {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateReviewSuccessfulImpl &&
-            const DeepCollectionEquality().equals(other.review, review));
+            (identical(other.review, review) || other.review == review));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(review));
+  int get hashCode => Object.hash(runtimeType, review);
 
   @JsonKey(ignore: true)
   @override

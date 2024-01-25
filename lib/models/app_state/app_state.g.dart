@@ -19,6 +19,10 @@ _$AppState$Impl _$$AppState$ImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <ImageModel>[],
+      users: (json['users'] as List<dynamic>?)
+              ?.map((e) => UserModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <UserModel>[],
       reviews: (json['reviews'] as List<dynamic>?)
               ?.map((e) => Review.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -34,6 +38,7 @@ Map<String, dynamic> _$$AppState$ImplToJson(_$AppState$Impl instance) =>
       'selectedImage': instance.selectedImage,
       'isLoading': instance.isLoading,
       'images': instance.images,
+      'users': instance.users,
       'reviews': instance.reviews,
       'page': instance.page,
       'query': instance.query,

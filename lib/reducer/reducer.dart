@@ -7,6 +7,7 @@ import '../actions/create_review/create_review.dart';
 import '../actions/create_user/create_user.dart';
 import '../actions/get_curent_user/get_current_user.dart';
 import '../actions/get_reviews/get_reviews.dart';
+import '../actions/get_users/get_users.dart';
 import '../actions/list_images/list_images.dart';
 import '../actions/select_image/select_image.dart';
 import '../actions/set_color/set_color.dart';
@@ -16,6 +17,7 @@ import '../actions/sign_out/sign_out.dart';
 import '../models/app_state/app_state.dart';
 import '../models/image/image_model.dart';
 import '../models/review/review.dart';
+import '../models/user/user_model.dart';
 
 AppState reducer(AppState state, dynamic action) {
   log('$action');
@@ -35,6 +37,7 @@ AppState reducer(AppState state, dynamic action) {
       TypedReducer<AppState, SelectImage>(_selectImage).call,
       TypedReducer<AppState, GetReviewsSuccessful>(_getReviewsSuccessful).call,
       TypedReducer<AppState, CreateReviewSuccessful>(_createReviewSuccessful).call,
+      TypedReducer<AppState, GetUsersSuccessful>(_getUsersSuccessful).call,
     ],
   )(state, action);
 }
@@ -107,4 +110,8 @@ AppState _getReviewsSuccessful(AppState state, GetReviewsSuccessful action) {
 
 AppState _createReviewSuccessful(AppState state, CreateReviewSuccessful action) {
   return state.copyWith(reviews: <Review>[action.review, ...state.reviews]);
+}
+
+AppState _getUsersSuccessful(AppState state, GetUsersSuccessful action) {
+  return state.copyWith(users: <UserModel>[...state.users, ...action.users]);
 }

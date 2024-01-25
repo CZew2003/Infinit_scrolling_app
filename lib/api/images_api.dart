@@ -4,6 +4,7 @@ import 'package:http/http.dart';
 
 import '../models/image/image_model.dart';
 import '../models/review/review.dart';
+import '../models/user/user_model.dart';
 
 class ImagesApi {
   ImagesApi({required this.client, required this.apiKey, required this.firestore});
@@ -93,12 +94,26 @@ class ImagesApi {
     required String text,
     required String uid,
   }) async {
-    final ref = firestore.collection('movies/$imageId/reviews').doc();
+    final DocumentReference<Map<String, dynamic>> ref = firestore.collection('movies/$imageId/reviews').doc();
 
     final Review review = Review(id: imageId, text: text, uid: uid, createdAt: DateTime.now());
 
     ref.set(review.toJson());
 
     return review;
+  }
+
+  Future<List<UserModel>> getUsers(List<String> uids) async {
+    final QuerySnapshot<Map<String, dynamic>> snapshot = await firestore.collection('users').get();
+
+    return uids
+        .map((String uid) => UserModel.fromJson(
+            snapshot.docs.where((QueryDocumentSnapshot<Map<String, dynamic>> doc) => doc.id == uid).first.data()))
+        .toList();
+  }
+
+  Future<void> setUserData(UserModel user) async {
+    final DocumentReference<Map<String, dynamic>> ref = firestore.collection('users').doc();
+    ref.set(user.toJson());
   }
 }
