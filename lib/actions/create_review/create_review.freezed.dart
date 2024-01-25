@@ -64,14 +64,12 @@ mixin _$CreateReview {
 
 /// @nodoc
 abstract class $CreateReviewCopyWith<$Res> {
-  factory $CreateReviewCopyWith(
-          CreateReview value, $Res Function(CreateReview) then) =
+  factory $CreateReviewCopyWith(CreateReview value, $Res Function(CreateReview) then) =
       _$CreateReviewCopyWithImpl<$Res, CreateReview>;
 }
 
 /// @nodoc
-class _$CreateReviewCopyWithImpl<$Res, $Val extends CreateReview>
-    implements $CreateReviewCopyWith<$Res> {
+class _$CreateReviewCopyWithImpl<$Res, $Val extends CreateReview> implements $CreateReviewCopyWith<$Res> {
   _$CreateReviewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -82,19 +80,16 @@ class _$CreateReviewCopyWithImpl<$Res, $Val extends CreateReview>
 
 /// @nodoc
 abstract class _$$CreateReviewStartImplCopyWith<$Res> {
-  factory _$$CreateReviewStartImplCopyWith(_$CreateReviewStartImpl value,
-          $Res Function(_$CreateReviewStartImpl) then) =
+  factory _$$CreateReviewStartImplCopyWith(_$CreateReviewStartImpl value, $Res Function(_$CreateReviewStartImpl) then) =
       __$$CreateReviewStartImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String imageId, String text});
 }
 
 /// @nodoc
-class __$$CreateReviewStartImplCopyWithImpl<$Res>
-    extends _$CreateReviewCopyWithImpl<$Res, _$CreateReviewStartImpl>
+class __$$CreateReviewStartImplCopyWithImpl<$Res> extends _$CreateReviewCopyWithImpl<$Res, _$CreateReviewStartImpl>
     implements _$$CreateReviewStartImplCopyWith<$Res> {
-  __$$CreateReviewStartImplCopyWithImpl(_$CreateReviewStartImpl _value,
-      $Res Function(_$CreateReviewStartImpl) _then)
+  __$$CreateReviewStartImplCopyWithImpl(_$CreateReviewStartImpl _value, $Res Function(_$CreateReviewStartImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -147,8 +142,7 @@ class _$CreateReviewStartImpl implements CreateReviewStart {
   @override
   @pragma('vm:prefer-inline')
   _$$CreateReviewStartImplCopyWith<_$CreateReviewStartImpl> get copyWith =>
-      __$$CreateReviewStartImplCopyWithImpl<_$CreateReviewStartImpl>(
-          this, _$identity);
+      __$$CreateReviewStartImplCopyWithImpl<_$CreateReviewStartImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -220,22 +214,19 @@ class _$CreateReviewStartImpl implements CreateReviewStart {
 }
 
 abstract class CreateReviewStart implements CreateReview {
-  const factory CreateReviewStart(
-      {required final String imageId,
-      required final String text}) = _$CreateReviewStartImpl;
+  const factory CreateReviewStart({required final String imageId, required final String text}) =
+      _$CreateReviewStartImpl;
 
   String get imageId;
   String get text;
   @JsonKey(ignore: true)
-  _$$CreateReviewStartImplCopyWith<_$CreateReviewStartImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CreateReviewStartImplCopyWith<_$CreateReviewStartImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$CreateReviewSuccessfulImplCopyWith<$Res> {
   factory _$$CreateReviewSuccessfulImplCopyWith(
-          _$CreateReviewSuccessfulImpl value,
-          $Res Function(_$CreateReviewSuccessfulImpl) then) =
+          _$CreateReviewSuccessfulImpl value, $Res Function(_$CreateReviewSuccessfulImpl) then) =
       __$$CreateReviewSuccessfulImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Review review});
@@ -248,8 +239,7 @@ class __$$CreateReviewSuccessfulImplCopyWithImpl<$Res>
     extends _$CreateReviewCopyWithImpl<$Res, _$CreateReviewSuccessfulImpl>
     implements _$$CreateReviewSuccessfulImplCopyWith<$Res> {
   __$$CreateReviewSuccessfulImplCopyWithImpl(
-      _$CreateReviewSuccessfulImpl _value,
-      $Res Function(_$CreateReviewSuccessfulImpl) _then)
+      _$CreateReviewSuccessfulImpl _value, $Res Function(_$CreateReviewSuccessfulImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -301,9 +291,8 @@ class _$CreateReviewSuccessfulImpl implements CreateReviewSuccessful {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateReviewSuccessfulImplCopyWith<_$CreateReviewSuccessfulImpl>
-      get copyWith => __$$CreateReviewSuccessfulImplCopyWithImpl<
-          _$CreateReviewSuccessfulImpl>(this, _$identity);
+  _$$CreateReviewSuccessfulImplCopyWith<_$CreateReviewSuccessfulImpl> get copyWith =>
+      __$$CreateReviewSuccessfulImplCopyWithImpl<_$CreateReviewSuccessfulImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -375,30 +364,26 @@ class _$CreateReviewSuccessfulImpl implements CreateReviewSuccessful {
 }
 
 abstract class CreateReviewSuccessful implements CreateReview {
-  const factory CreateReviewSuccessful(final Review review) =
-      _$CreateReviewSuccessfulImpl;
+  const factory CreateReviewSuccessful(final Review review) = _$CreateReviewSuccessfulImpl;
 
   Review get review;
   @JsonKey(ignore: true)
-  _$$CreateReviewSuccessfulImplCopyWith<_$CreateReviewSuccessfulImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$CreateReviewSuccessfulImplCopyWith<_$CreateReviewSuccessfulImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$CreateReviewErrorImplCopyWith<$Res> {
-  factory _$$CreateReviewErrorImplCopyWith(_$CreateReviewErrorImpl value,
-          $Res Function(_$CreateReviewErrorImpl) then) =
+  factory _$$CreateReviewErrorImplCopyWith(_$CreateReviewErrorImpl value, $Res Function(_$CreateReviewErrorImpl) then) =
       __$$CreateReviewErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$CreateReviewErrorImplCopyWithImpl<$Res>
-    extends _$CreateReviewCopyWithImpl<$Res, _$CreateReviewErrorImpl>
+class __$$CreateReviewErrorImplCopyWithImpl<$Res> extends _$CreateReviewCopyWithImpl<$Res, _$CreateReviewErrorImpl>
     implements _$$CreateReviewErrorImplCopyWith<$Res> {
-  __$$CreateReviewErrorImplCopyWithImpl(_$CreateReviewErrorImpl _value,
-      $Res Function(_$CreateReviewErrorImpl) _then)
+  __$$CreateReviewErrorImplCopyWithImpl(_$CreateReviewErrorImpl _value, $Res Function(_$CreateReviewErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -438,20 +423,17 @@ class _$CreateReviewErrorImpl implements CreateReviewError {
         (other.runtimeType == runtimeType &&
             other is _$CreateReviewErrorImpl &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
+            (identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateReviewErrorImplCopyWith<_$CreateReviewErrorImpl> get copyWith =>
-      __$$CreateReviewErrorImplCopyWithImpl<_$CreateReviewErrorImpl>(
-          this, _$identity);
+      __$$CreateReviewErrorImplCopyWithImpl<_$CreateReviewErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -523,13 +505,10 @@ class _$CreateReviewErrorImpl implements CreateReviewError {
 }
 
 abstract class CreateReviewError implements CreateReview, ErrorAction {
-  const factory CreateReviewError(
-          final Object error, final StackTrace stackTrace) =
-      _$CreateReviewErrorImpl;
+  const factory CreateReviewError(final Object error, final StackTrace stackTrace) = _$CreateReviewErrorImpl;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$CreateReviewErrorImplCopyWith<_$CreateReviewErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CreateReviewErrorImplCopyWith<_$CreateReviewErrorImpl> get copyWith => throw _privateConstructorUsedError;
 }

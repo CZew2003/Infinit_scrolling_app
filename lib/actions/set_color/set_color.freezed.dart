@@ -19,21 +19,18 @@ mixin _$SetColor {
   String get color => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SetColorCopyWith<SetColor> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SetColorCopyWith<SetColor> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SetColorCopyWith<$Res> {
-  factory $SetColorCopyWith(SetColor value, $Res Function(SetColor) then) =
-      _$SetColorCopyWithImpl<$Res, SetColor>;
+  factory $SetColorCopyWith(SetColor value, $Res Function(SetColor) then) = _$SetColorCopyWithImpl<$Res, SetColor>;
   @useResult
   $Res call({String color});
 }
 
 /// @nodoc
-class _$SetColorCopyWithImpl<$Res, $Val extends SetColor>
-    implements $SetColorCopyWith<$Res> {
+class _$SetColorCopyWithImpl<$Res, $Val extends SetColor> implements $SetColorCopyWith<$Res> {
   _$SetColorCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -56,10 +53,8 @@ class _$SetColorCopyWithImpl<$Res, $Val extends SetColor>
 }
 
 /// @nodoc
-abstract class _$$SetColor$ImplCopyWith<$Res>
-    implements $SetColorCopyWith<$Res> {
-  factory _$$SetColor$ImplCopyWith(
-          _$SetColor$Impl value, $Res Function(_$SetColor$Impl) then) =
+abstract class _$$SetColor$ImplCopyWith<$Res> implements $SetColorCopyWith<$Res> {
+  factory _$$SetColor$ImplCopyWith(_$SetColor$Impl value, $Res Function(_$SetColor$Impl) then) =
       __$$SetColor$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -67,12 +62,9 @@ abstract class _$$SetColor$ImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SetColor$ImplCopyWithImpl<$Res>
-    extends _$SetColorCopyWithImpl<$Res, _$SetColor$Impl>
+class __$$SetColor$ImplCopyWithImpl<$Res> extends _$SetColorCopyWithImpl<$Res, _$SetColor$Impl>
     implements _$$SetColor$ImplCopyWith<$Res> {
-  __$$SetColor$ImplCopyWithImpl(
-      _$SetColor$Impl _value, $Res Function(_$SetColor$Impl) _then)
-      : super(_value, _then);
+  __$$SetColor$ImplCopyWithImpl(_$SetColor$Impl _value, $Res Function(_$SetColor$Impl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -126,6 +118,5 @@ abstract class SetColor$ implements SetColor {
   String get color;
   @override
   @JsonKey(ignore: true)
-  _$$SetColor$ImplCopyWith<_$SetColor$Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SetColor$ImplCopyWith<_$SetColor$Impl> get copyWith => throw _privateConstructorUsedError;
 }

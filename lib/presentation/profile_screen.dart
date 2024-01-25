@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../actions/change_picture/change_picture.dart';
 import '../actions/sign_out/sign_out.dart';
 import '../models/user/user_model.dart';
 import '../util/extensions.dart';
 import 'container/client_container.dart';
-import 'package:image_picker/image_picker.dart';
-
 import 'user_avatar.dart';
 
 class ProfileScreen extends StatelessWidget {

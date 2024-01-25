@@ -14,7 +14,7 @@ class AuthApi {
   final FirebaseStorage _storage;
 
   Future<UserModel?> changeProfilePicture({required String uid, required String path}) async {
-    final ref = _storage.ref('users/$uid/profile.jpg');
+    final Reference ref = _storage.ref('users/$uid/profile.jpg');
     await ref.putFile(File(path));
     final String url = await ref.getDownloadURL();
 

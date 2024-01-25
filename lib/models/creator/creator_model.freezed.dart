@@ -25,14 +25,12 @@ mixin _$CreatorModel {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreatorModelCopyWith<CreatorModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  $CreatorModelCopyWith<CreatorModel> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CreatorModelCopyWith<$Res> {
-  factory $CreatorModelCopyWith(
-          CreatorModel value, $Res Function(CreatorModel) then) =
+  factory $CreatorModelCopyWith(CreatorModel value, $Res Function(CreatorModel) then) =
       _$CreatorModelCopyWithImpl<$Res, CreatorModel>;
   @useResult
   $Res call({LinksModel links, String name});
@@ -41,8 +39,7 @@ abstract class $CreatorModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CreatorModelCopyWithImpl<$Res, $Val extends CreatorModel>
-    implements $CreatorModelCopyWith<$Res> {
+class _$CreatorModelCopyWithImpl<$Res, $Val extends CreatorModel> implements $CreatorModelCopyWith<$Res> {
   _$CreatorModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -78,10 +75,8 @@ class _$CreatorModelCopyWithImpl<$Res, $Val extends CreatorModel>
 }
 
 /// @nodoc
-abstract class _$$CreatorModel$ImplCopyWith<$Res>
-    implements $CreatorModelCopyWith<$Res> {
-  factory _$$CreatorModel$ImplCopyWith(
-          _$CreatorModel$Impl value, $Res Function(_$CreatorModel$Impl) then) =
+abstract class _$$CreatorModel$ImplCopyWith<$Res> implements $CreatorModelCopyWith<$Res> {
+  factory _$$CreatorModel$ImplCopyWith(_$CreatorModel$Impl value, $Res Function(_$CreatorModel$Impl) then) =
       __$$CreatorModel$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -92,11 +87,9 @@ abstract class _$$CreatorModel$ImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CreatorModel$ImplCopyWithImpl<$Res>
-    extends _$CreatorModelCopyWithImpl<$Res, _$CreatorModel$Impl>
+class __$$CreatorModel$ImplCopyWithImpl<$Res> extends _$CreatorModelCopyWithImpl<$Res, _$CreatorModel$Impl>
     implements _$$CreatorModel$ImplCopyWith<$Res> {
-  __$$CreatorModel$ImplCopyWithImpl(
-      _$CreatorModel$Impl _value, $Res Function(_$CreatorModel$Impl) _then)
+  __$$CreatorModel$ImplCopyWithImpl(_$CreatorModel$Impl _value, $Res Function(_$CreatorModel$Impl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,8 +116,7 @@ class __$$CreatorModel$ImplCopyWithImpl<$Res>
 class _$CreatorModel$Impl implements CreatorModel$ {
   const _$CreatorModel$Impl({required this.links, required this.name});
 
-  factory _$CreatorModel$Impl.fromJson(Map<String, dynamic> json) =>
-      _$$CreatorModel$ImplFromJson(json);
+  factory _$CreatorModel$Impl.fromJson(Map<String, dynamic> json) => _$$CreatorModel$ImplFromJson(json);
 
   @override
   final LinksModel links;
@@ -164,12 +156,9 @@ class _$CreatorModel$Impl implements CreatorModel$ {
 }
 
 abstract class CreatorModel$ implements CreatorModel {
-  const factory CreatorModel$(
-      {required final LinksModel links,
-      required final String name}) = _$CreatorModel$Impl;
+  const factory CreatorModel$({required final LinksModel links, required final String name}) = _$CreatorModel$Impl;
 
-  factory CreatorModel$.fromJson(Map<String, dynamic> json) =
-      _$CreatorModel$Impl.fromJson;
+  factory CreatorModel$.fromJson(Map<String, dynamic> json) = _$CreatorModel$Impl.fromJson;
 
   @override
   LinksModel get links;
@@ -177,6 +166,5 @@ abstract class CreatorModel$ implements CreatorModel {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$CreatorModel$ImplCopyWith<_$CreatorModel$Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CreatorModel$ImplCopyWith<_$CreatorModel$Impl> get copyWith => throw _privateConstructorUsedError;
 }

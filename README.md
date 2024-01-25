@@ -1,16 +1,27 @@
 # infinite_scrolling_images
 
-A new Flutter project.
+My project for Atelier Digital course
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+This project is an infinite scrolling app. You can search for a certain picture, choosing also its
+primaries colors.
 
-A few resources to get you started if this is your first Flutter project:
+It has a feature for signing in, where you can create an account for leaving a review of your most
+favourite pictures, so that other people can view your reactions.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+What it uses:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Unsplash: It uses its api for querying the pictures that the user required](https://unsplash.com/)
+- [Firebase: For storing all the data linked to registration and reviews management](https://firebase.google.com/)
+
+
+Some images of the app:
+
+- ![Main screen](assets/home_screen.JPG)
+- ![Filter for colors](assets/filter.JPG)
+- ![Create an user](assets/create_user.JPG)
+- ![Login with email and password](assets/login.JPG)
+- ![View your profile](assets/profile.JPG)
+- ![Detailed image with reviews](assets/image_with_reviews.JPG)
+- ![Detailed image without reviews](assets/image_without_reviews.JPG)

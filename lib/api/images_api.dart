@@ -122,7 +122,5 @@ class ImagesApi {
     } else {
       firestore.collection('users').doc().set(user.toJson());
     }
-    //ref.update(data)
-    //ref.set(user.toJson());
   }
 }

@@ -64,14 +64,12 @@ mixin _$SetUserData {
 
 /// @nodoc
 abstract class $SetUserDataCopyWith<$Res> {
-  factory $SetUserDataCopyWith(
-          SetUserData value, $Res Function(SetUserData) then) =
+  factory $SetUserDataCopyWith(SetUserData value, $Res Function(SetUserData) then) =
       _$SetUserDataCopyWithImpl<$Res, SetUserData>;
 }
 
 /// @nodoc
-class _$SetUserDataCopyWithImpl<$Res, $Val extends SetUserData>
-    implements $SetUserDataCopyWith<$Res> {
+class _$SetUserDataCopyWithImpl<$Res, $Val extends SetUserData> implements $SetUserDataCopyWith<$Res> {
   _$SetUserDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -82,8 +80,7 @@ class _$SetUserDataCopyWithImpl<$Res, $Val extends SetUserData>
 
 /// @nodoc
 abstract class _$$SetUserDataStartImplCopyWith<$Res> {
-  factory _$$SetUserDataStartImplCopyWith(_$SetUserDataStartImpl value,
-          $Res Function(_$SetUserDataStartImpl) then) =
+  factory _$$SetUserDataStartImplCopyWith(_$SetUserDataStartImpl value, $Res Function(_$SetUserDataStartImpl) then) =
       __$$SetUserDataStartImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UserModel user});
@@ -92,11 +89,9 @@ abstract class _$$SetUserDataStartImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SetUserDataStartImplCopyWithImpl<$Res>
-    extends _$SetUserDataCopyWithImpl<$Res, _$SetUserDataStartImpl>
+class __$$SetUserDataStartImplCopyWithImpl<$Res> extends _$SetUserDataCopyWithImpl<$Res, _$SetUserDataStartImpl>
     implements _$$SetUserDataStartImplCopyWith<$Res> {
-  __$$SetUserDataStartImplCopyWithImpl(_$SetUserDataStartImpl _value,
-      $Res Function(_$SetUserDataStartImpl) _then)
+  __$$SetUserDataStartImplCopyWithImpl(_$SetUserDataStartImpl _value, $Res Function(_$SetUserDataStartImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -149,8 +144,7 @@ class _$SetUserDataStartImpl implements SetUserDataStart {
   @override
   @pragma('vm:prefer-inline')
   _$$SetUserDataStartImplCopyWith<_$SetUserDataStartImpl> get copyWith =>
-      __$$SetUserDataStartImplCopyWithImpl<_$SetUserDataStartImpl>(
-          this, _$identity);
+      __$$SetUserDataStartImplCopyWithImpl<_$SetUserDataStartImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -226,15 +220,13 @@ abstract class SetUserDataStart implements SetUserData {
 
   UserModel get user;
   @JsonKey(ignore: true)
-  _$$SetUserDataStartImplCopyWith<_$SetUserDataStartImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SetUserDataStartImplCopyWith<_$SetUserDataStartImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SetUserDataSuccessfulImplCopyWith<$Res> {
   factory _$$SetUserDataSuccessfulImplCopyWith(
-          _$SetUserDataSuccessfulImpl value,
-          $Res Function(_$SetUserDataSuccessfulImpl) then) =
+          _$SetUserDataSuccessfulImpl value, $Res Function(_$SetUserDataSuccessfulImpl) then) =
       __$$SetUserDataSuccessfulImplCopyWithImpl<$Res>;
 }
 
@@ -242,8 +234,8 @@ abstract class _$$SetUserDataSuccessfulImplCopyWith<$Res> {
 class __$$SetUserDataSuccessfulImplCopyWithImpl<$Res>
     extends _$SetUserDataCopyWithImpl<$Res, _$SetUserDataSuccessfulImpl>
     implements _$$SetUserDataSuccessfulImplCopyWith<$Res> {
-  __$$SetUserDataSuccessfulImplCopyWithImpl(_$SetUserDataSuccessfulImpl _value,
-      $Res Function(_$SetUserDataSuccessfulImpl) _then)
+  __$$SetUserDataSuccessfulImplCopyWithImpl(
+      _$SetUserDataSuccessfulImpl _value, $Res Function(_$SetUserDataSuccessfulImpl) _then)
       : super(_value, _then);
 }
 
@@ -259,9 +251,7 @@ class _$SetUserDataSuccessfulImpl implements SetUserDataSuccessful {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SetUserDataSuccessfulImpl);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SetUserDataSuccessfulImpl);
   }
 
   @override
@@ -342,19 +332,16 @@ abstract class SetUserDataSuccessful implements SetUserData {
 
 /// @nodoc
 abstract class _$$SetUserDataErrorImplCopyWith<$Res> {
-  factory _$$SetUserDataErrorImplCopyWith(_$SetUserDataErrorImpl value,
-          $Res Function(_$SetUserDataErrorImpl) then) =
+  factory _$$SetUserDataErrorImplCopyWith(_$SetUserDataErrorImpl value, $Res Function(_$SetUserDataErrorImpl) then) =
       __$$SetUserDataErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$SetUserDataErrorImplCopyWithImpl<$Res>
-    extends _$SetUserDataCopyWithImpl<$Res, _$SetUserDataErrorImpl>
+class __$$SetUserDataErrorImplCopyWithImpl<$Res> extends _$SetUserDataCopyWithImpl<$Res, _$SetUserDataErrorImpl>
     implements _$$SetUserDataErrorImplCopyWith<$Res> {
-  __$$SetUserDataErrorImplCopyWithImpl(_$SetUserDataErrorImpl _value,
-      $Res Function(_$SetUserDataErrorImpl) _then)
+  __$$SetUserDataErrorImplCopyWithImpl(_$SetUserDataErrorImpl _value, $Res Function(_$SetUserDataErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -394,20 +381,17 @@ class _$SetUserDataErrorImpl implements SetUserDataError {
         (other.runtimeType == runtimeType &&
             other is _$SetUserDataErrorImpl &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
+            (identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SetUserDataErrorImplCopyWith<_$SetUserDataErrorImpl> get copyWith =>
-      __$$SetUserDataErrorImplCopyWithImpl<_$SetUserDataErrorImpl>(
-          this, _$identity);
+      __$$SetUserDataErrorImplCopyWithImpl<_$SetUserDataErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -479,12 +463,10 @@ class _$SetUserDataErrorImpl implements SetUserDataError {
 }
 
 abstract class SetUserDataError implements SetUserData, ErrorAction {
-  const factory SetUserDataError(
-      final Object error, final StackTrace stackTrace) = _$SetUserDataErrorImpl;
+  const factory SetUserDataError(final Object error, final StackTrace stackTrace) = _$SetUserDataErrorImpl;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$SetUserDataErrorImplCopyWith<_$SetUserDataErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SetUserDataErrorImplCopyWith<_$SetUserDataErrorImpl> get copyWith => throw _privateConstructorUsedError;
 }

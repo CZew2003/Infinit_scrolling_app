@@ -163,7 +163,6 @@ class AppEpics extends EpicClass<AppState> {
   }
 
   Stream<AppAction> _setUserDataStart(Stream<SetUserDataStart> actions, EpicStore<AppState> store) {
-    print('da');
     return actions.flatMap((SetUserDataStart action) {
       return Stream<void>.value(null)
           .asyncMap((_) {

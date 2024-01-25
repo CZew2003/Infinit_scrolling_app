@@ -5,7 +5,6 @@ import '../models/image/image_model.dart';
 import '../models/review/review.dart';
 import '../models/user/user_model.dart';
 import '../util/extensions.dart';
-import 'container/client_container.dart';
 import 'container/reviews_container.dart';
 import 'container/selected_image_container.dart';
 import 'container/users_container.dart';
@@ -83,7 +82,6 @@ class ImagePage extends StatelessWidget {
                               final Review review = reviews[index];
                               final UserModel reviewUser =
                                   users.where((UserModel user) => user.uid == review.uid).first;
-                              print(reviewUser);
                               return ListTile(
                                 leading: CircleAvatar(
                                   radius: 28,
@@ -100,7 +98,7 @@ class ImagePage extends StatelessWidget {
                                 title: Text(review.text),
                                 subtitle: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
+                                  children: <Widget>[
                                     Text(reviewUser.displayName),
                                     Text(review.createdAt.toString().split('.')[0]),
                                   ],
@@ -128,7 +126,7 @@ class ImagePage extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              final TextEditingController _controller = TextEditingController();
+              final TextEditingController controller = TextEditingController();
 
               showDialog<void>(
                 context: context,
@@ -136,7 +134,7 @@ class ImagePage extends StatelessWidget {
                   return AlertDialog(
                     title: const Text('Leave a review'),
                     content: TextField(
-                      controller: _controller,
+                      controller: controller,
                     ),
                     actions: <Widget>[
                       FilledButton(
@@ -147,7 +145,7 @@ class ImagePage extends StatelessWidget {
                       ),
                       FilledButton(
                         onPressed: () {
-                          final String text = _controller.text.trim();
+                          final String text = controller.text.trim();
                           if (text.isNotEmpty) {
                             context.dispatch(CreateReview(imageId: image!.id, text: text));
                           }

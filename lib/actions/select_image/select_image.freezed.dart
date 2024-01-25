@@ -19,14 +19,12 @@ mixin _$SelectImage {
   ImageModel get image => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SelectImageCopyWith<SelectImage> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SelectImageCopyWith<SelectImage> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SelectImageCopyWith<$Res> {
-  factory $SelectImageCopyWith(
-          SelectImage value, $Res Function(SelectImage) then) =
+  factory $SelectImageCopyWith(SelectImage value, $Res Function(SelectImage) then) =
       _$SelectImageCopyWithImpl<$Res, SelectImage>;
   @useResult
   $Res call({ImageModel image});
@@ -35,8 +33,7 @@ abstract class $SelectImageCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SelectImageCopyWithImpl<$Res, $Val extends SelectImage>
-    implements $SelectImageCopyWith<$Res> {
+class _$SelectImageCopyWithImpl<$Res, $Val extends SelectImage> implements $SelectImageCopyWith<$Res> {
   _$SelectImageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -67,10 +64,8 @@ class _$SelectImageCopyWithImpl<$Res, $Val extends SelectImage>
 }
 
 /// @nodoc
-abstract class _$$SelectImageStart$ImplCopyWith<$Res>
-    implements $SelectImageCopyWith<$Res> {
-  factory _$$SelectImageStart$ImplCopyWith(_$SelectImageStart$Impl value,
-          $Res Function(_$SelectImageStart$Impl) then) =
+abstract class _$$SelectImageStart$ImplCopyWith<$Res> implements $SelectImageCopyWith<$Res> {
+  factory _$$SelectImageStart$ImplCopyWith(_$SelectImageStart$Impl value, $Res Function(_$SelectImageStart$Impl) then) =
       __$$SelectImageStart$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -81,11 +76,9 @@ abstract class _$$SelectImageStart$ImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SelectImageStart$ImplCopyWithImpl<$Res>
-    extends _$SelectImageCopyWithImpl<$Res, _$SelectImageStart$Impl>
+class __$$SelectImageStart$ImplCopyWithImpl<$Res> extends _$SelectImageCopyWithImpl<$Res, _$SelectImageStart$Impl>
     implements _$$SelectImageStart$ImplCopyWith<$Res> {
-  __$$SelectImageStart$ImplCopyWithImpl(_$SelectImageStart$Impl _value,
-      $Res Function(_$SelectImageStart$Impl) _then)
+  __$$SelectImageStart$ImplCopyWithImpl(_$SelectImageStart$Impl _value, $Res Function(_$SelectImageStart$Impl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,18 +123,15 @@ class _$SelectImageStart$Impl implements SelectImageStart$ {
   @override
   @pragma('vm:prefer-inline')
   _$$SelectImageStart$ImplCopyWith<_$SelectImageStart$Impl> get copyWith =>
-      __$$SelectImageStart$ImplCopyWithImpl<_$SelectImageStart$Impl>(
-          this, _$identity);
+      __$$SelectImageStart$ImplCopyWithImpl<_$SelectImageStart$Impl>(this, _$identity);
 }
 
 abstract class SelectImageStart$ implements SelectImage {
-  const factory SelectImageStart$(final ImageModel image) =
-      _$SelectImageStart$Impl;
+  const factory SelectImageStart$(final ImageModel image) = _$SelectImageStart$Impl;
 
   @override
   ImageModel get image;
   @override
   @JsonKey(ignore: true)
-  _$$SelectImageStart$ImplCopyWith<_$SelectImageStart$Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SelectImageStart$ImplCopyWith<_$SelectImageStart$Impl> get copyWith => throw _privateConstructorUsedError;
 }
