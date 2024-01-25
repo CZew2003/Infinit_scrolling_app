@@ -87,4 +87,18 @@ class ImagesApi {
         await firestore.collection('movies/$imageId/reviews').orderBy('createdAt', descending: true).get();
     return snapshot.docs.map((QueryDocumentSnapshot<Map<String, dynamic>> doc) => Review.fromJson(doc.data())).toList();
   }
+
+  Future<Review> createReview({
+    required String imageId,
+    required String text,
+    required String uid,
+  }) async {
+    final ref = firestore.collection('movies/$imageId/reviews').doc();
+
+    final Review review = Review(id: imageId, text: text, uid: uid, createdAt: DateTime.now());
+
+    ref.set(review.toJson());
+
+    return review;
+  }
 }

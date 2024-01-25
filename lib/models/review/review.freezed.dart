@@ -23,6 +23,7 @@ mixin _$Review {
   String get id => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   String get uid => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $ReviewCopyWith<$Res> {
   factory $ReviewCopyWith(Review value, $Res Function(Review) then) =
       _$ReviewCopyWithImpl<$Res, Review>;
   @useResult
-  $Res call({String id, String text, String uid});
+  $Res call({String id, String text, String uid, DateTime createdAt});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$ReviewCopyWithImpl<$Res, $Val extends Review>
     Object? id = null,
     Object? text = null,
     Object? uid = null,
+    Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -67,6 +69,10 @@ class _$ReviewCopyWithImpl<$Res, $Val extends Review>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -78,7 +84,7 @@ abstract class _$$Review$ImplCopyWith<$Res> implements $ReviewCopyWith<$Res> {
       __$$Review$ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String text, String uid});
+  $Res call({String id, String text, String uid, DateTime createdAt});
 }
 
 /// @nodoc
@@ -95,6 +101,7 @@ class __$$Review$ImplCopyWithImpl<$Res>
     Object? id = null,
     Object? text = null,
     Object? uid = null,
+    Object? createdAt = null,
   }) {
     return _then(_$Review$Impl(
       id: null == id
@@ -109,6 +116,10 @@ class __$$Review$ImplCopyWithImpl<$Res>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -117,7 +128,10 @@ class __$$Review$ImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$Review$Impl implements Review$ {
   const _$Review$Impl(
-      {required this.id, required this.text, required this.uid});
+      {required this.id,
+      required this.text,
+      required this.uid,
+      required this.createdAt});
 
   factory _$Review$Impl.fromJson(Map<String, dynamic> json) =>
       _$$Review$ImplFromJson(json);
@@ -128,10 +142,12 @@ class _$Review$Impl implements Review$ {
   final String text;
   @override
   final String uid;
+  @override
+  final DateTime createdAt;
 
   @override
   String toString() {
-    return 'Review(id: $id, text: $text, uid: $uid)';
+    return 'Review(id: $id, text: $text, uid: $uid, createdAt: $createdAt)';
   }
 
   @override
@@ -141,12 +157,14 @@ class _$Review$Impl implements Review$ {
             other is _$Review$Impl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.text, text) || other.text == text) &&
-            (identical(other.uid, uid) || other.uid == uid));
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, text, uid);
+  int get hashCode => Object.hash(runtimeType, id, text, uid, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -166,7 +184,8 @@ abstract class Review$ implements Review {
   const factory Review$(
       {required final String id,
       required final String text,
-      required final String uid}) = _$Review$Impl;
+      required final String uid,
+      required final DateTime createdAt}) = _$Review$Impl;
 
   factory Review$.fromJson(Map<String, dynamic> json) = _$Review$Impl.fromJson;
 
@@ -176,6 +195,8 @@ abstract class Review$ implements Review {
   String get text;
   @override
   String get uid;
+  @override
+  DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$Review$ImplCopyWith<_$Review$Impl> get copyWith =>

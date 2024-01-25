@@ -9,6 +9,7 @@ class Review with _$Review {
     required String id,
     required String text,
     required String uid,
+    required DateTime createdAt,
   }) = Review$;
 
   factory Review.fromJson(Map<dynamic, dynamic> json) => _$ReviewFromJson(Map<String, dynamic>.from(json));

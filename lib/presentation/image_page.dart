@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../actions/create_review/create_review.dart';
 import '../models/image/image_model.dart';
 import '../models/review/review.dart';
+import '../util/extensions.dart';
 import 'container/reviews_container.dart';
 import 'container/selected_image_container.dart';
 
@@ -77,6 +79,7 @@ class ImagePage extends StatelessWidget {
 
                           return ListTile(
                             title: Text(review.text),
+                            subtitle: Text(review.createdAt.toString().split('.')[0]),
                           );
                         },
                         childCount: reviews.length,
@@ -95,6 +98,42 @@ class ImagePage extends StatelessWidget {
                 ],
               );
             },
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              final TextEditingController _controller = TextEditingController();
+
+              showDialog<void>(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Leave a review'),
+                    content: TextField(
+                      controller: _controller,
+                    ),
+                    actions: [
+                      FilledButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Cancel'),
+                      ),
+                      FilledButton(
+                        onPressed: () {
+                          final String text = _controller.text.trim();
+                          if (text.isNotEmpty) {
+                            context.dispatch(CreateReview(imageId: image!.id, text: text));
+                          }
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Save'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: const Icon(Icons.add_comment),
           ),
         );
       },

@@ -4,6 +4,7 @@ import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/transformers.dart';
 import '../actions/app_action.dart';
 import '../actions/change_picture/change_picture.dart';
+import '../actions/create_review/create_review.dart';
 import '../actions/create_user/create_user.dart';
 import '../actions/get_curent_user/get_current_user.dart';
 import '../actions/get_reviews/get_reviews.dart';
@@ -36,6 +37,7 @@ class AppEpics extends EpicClass<AppState> {
       TypedEpic<AppState, SignInStart>(_signInStart).call,
       TypedEpic<AppState, ChangePictureStart>(_changePictureStart).call,
       TypedEpic<AppState, GetReviewsStart>(_getReviewsStart).call,
+      TypedEpic<AppState, CreateReviewStart>(_createReviewStart).call,
     ])(actions, store);
   }
 
@@ -119,6 +121,17 @@ class AppEpics extends EpicClass<AppState> {
           })
           .map((List<Review> reviews) => GetReviews.successful(reviews))
           .onErrorReturnWith((Object error, StackTrace stackTrace) => GetReviews.error(error, stackTrace));
+    });
+  }
+
+  Stream<AppAction> _createReviewStart(Stream<CreateReviewStart> actions, EpicStore<AppState> store) {
+    return actions.flatMap((CreateReviewStart action) {
+      return Stream<void>.value(null)
+          .asyncMap((_) {
+            return api.createReview(imageId: action.imageId, text: action.text, uid: store.state.user!.uid);
+          })
+          .map((Review review) => CreateReview.successful(review))
+          .onErrorReturnWith((Object error, StackTrace stackTrace) => CreateReview.error(error, stackTrace));
     });
   }
 }

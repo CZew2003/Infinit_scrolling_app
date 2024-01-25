@@ -11,6 +11,7 @@ _$Review$Impl _$$Review$ImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       text: json['text'] as String,
       uid: json['uid'] as String,
+      createdAt: DateTime.parse(json['createdAt'] as String),
     );
 
 Map<String, dynamic> _$$Review$ImplToJson(_$Review$Impl instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$Review$ImplToJson(_$Review$Impl instance) =>
       'id': instance.id,
       'text': instance.text,
       'uid': instance.uid,
+      'createdAt': instance.createdAt.toIso8601String(),
     };
